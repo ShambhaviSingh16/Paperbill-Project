@@ -1,98 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaperBill - Automobile Shop Billing Software | Streamline Your Auto Business</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Keyframes for enhanced animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         @keyframes fadeInDown {
-            from {
+            from { 
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
-
-            to {
+            to { 
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeInUp {
-            from {
+            from { 
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
-
-            to {
+            to { 
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
+        @keyframes fadeInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-30px);
             }
-
-            50% {
-                transform: translateY(-15px);
-            }
-
-            100% {
-                transform: translateY(0px);
+            to { 
+                opacity: 1;
+                transform: translateX(0);
             }
         }
-
+        @keyframes fadeInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
         @keyframes pulse {
-            0% {
-                transform: scale(1);
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
             }
-
-            50% {
-                transform: scale(1.03);
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes slideInFromBottom {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Animation classes */
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-fade-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .animate-fade-left {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+        .animate-fade-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .animate-slide-up {
+            animation: slideInFromBottom 0.8s ease-out forwards;
+        }
+        .animate-delay-100 {
+            animation-delay: 0.1s;
+        }
+        .animate-delay-200 {
+            animation-delay: 0.2s;
+        }
+        .animate-delay-300 {
+            animation-delay: 0.3s;
+        }
+        .animate-delay-400 {
+            animation-delay: 0.4s;
+        }
+        .animate-delay-500 {
+            animation-delay: 0.5s;
+        }
+        .animate-delay-600 {
+            animation-delay: 0.6s;
+        }
+        .animate-delay-700 {
+            animation-delay: 0.7s;
+        }
+        .animate-delay-800 {
+            animation-delay: 0.8s;
+        }
+        
+        /* Button ripple effect */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+        .btn-ripple .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        /* Hover effects */
+        .hover-scale:hover {
+            transform: scale(1.03) !important;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+        }
+        .hover-shadow-lg:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+        }
+        .hover-grow:hover {
+            transform: scale(1.05) !important;
+        }
+        .hover-rotate:hover {
+            transform: rotate(5deg) !important;
+        }
+        
+        /* Transition classes */
+        .transition-all {
+            transition: all 0.3s ease-out;
+        }
+        .transition-transform {
+            transition: transform 0.3s ease-out;
+        }
+        .transition-colors {
+            transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
+        }
+        .transition-slow {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2563eb;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e40af;
+        }
+        
+        /* Custom styles */
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradientBG 3s ease infinite;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af, #2563eb, #3b82f6);
+            background-size: 200% 200%;
+            animation: gradientBG 6s ease infinite;
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        .rotating {
+            animation: rotate 20s linear infinite;
+        }
+        .card-glow {
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.3);
+        }
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .price-card:hover {
+            transform: translateY(-10px) !important;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px) scale(1.01) !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr !important;
             }
-
-            100% {
-                transform: scale(1);
+            .demo-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .business-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
 </head>
-
-<body
-    style="margin: 0; font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6;">
+<body style="margin: 0; font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; scroll-behavior: smooth;">
 
     <!-- Modern Header with Logo -->
-    <header
-        style="background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
-        <div
-            style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <header style="background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; animation: fadeInDown 0.8s ease-out;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div
-                        style="width: 40px; height: 40px; background-color: #2563eb; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 1.2rem;">
-                        BILL
+                <a href="#" style="display: flex; align-items: center; gap: 10px; text-decoration: none;" class="hover-scale">
+                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #2563eb, #3b82f6); border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 1.2rem; transition: all 0.3s ease-out;">
+                        <i class="fas fa-receipt"></i>
                     </div>
-                    <span style="font-weight: 700; font-size: 1.5rem; color: #1e293b;">PaperBill</span>
-                </div>
+                    <span style="font-weight: 700; font-size: 1.5rem; color: #1e293b;" class="gradient-text">PaperBill</span>
+                </a>
                 <nav style="margin-left: 3rem; display: none;">
-                    <a href="#features"
-                        style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Features</a>
-                    <a href="#industries"
-                        style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Industries</a>
-                    <a href="#pricing"
-                        style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Pricing</a>
-                    <a href="#testimonials"
-                        style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s;">Testimonials</a>
+                    <a href="#features" style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Features</a>
+                    <a href="#industries" style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Industries</a>
+                    <a href="#pricing" style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Pricing</a>
+                    <a href="#testimonials" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s;">Testimonials</a>
                 </nav>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem;">
-                <a href="app.paperbill.in"
-                    style="background-color: #2563eb; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                <a href="app.paperbill.in" class="btn-ripple" style="background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease-out; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);" onmousedown="createRipple(event, this)">
                     <i class="fas fa-external-link-alt"></i> Web App
                 </a>
                 <button style="background-color: transparent; border: none; cursor: pointer; display: none;">
@@ -103,41 +289,31 @@
     </header>
 
     <!-- Hero Section for Automobile Businesses -->
-    <section
-        style="background: linear-gradient(135deg, #1e40af, #2563eb); color: white; padding: 4rem 2rem; position: relative; overflow: hidden;">
-        <div
-            style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-            <div style="position: relative; z-index: 2; animation: fadeInDown 1s ease-out;">
-                <div
-                    style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: 500;">
+    <section style="background: linear-gradient(135deg, #1e40af, #2563eb); color: white; padding: 4rem 2rem; position: relative; overflow: hidden;" class="gradient-bg">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;" class="hero-grid">
+            <div style="position: relative; z-index: 2;" class="animate-fade-left">
+                <div style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: 500;" class="animate-fade-in animate-delay-100 hover-scale">
                     <i class="fas fa-car" style="margin-right: 0.5rem;"></i> Automobile Special
                 </div>
-                <h1 style="font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;">Complete Billing
-                    Solution for <span style="border-bottom: 4px solid #f59e0b;">Auto Businesses</span></h1>
-                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Manage your automobile parts,
-                    services, inventory and billing all in one place with PaperBill's specialized solution.</p>
-                <div style="display: flex; gap: 1.5rem;">
-                    <a href="#demo"
-                        style="background-color: white; color: #2563eb; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s;">
+                <h1 style="font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;" class="animate-fade-in animate-delay-200">Complete Billing Solution for <span style="border-bottom: 4px solid #f59e0b; display: inline-block;">Auto Businesses</span></h1>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;" class="animate-fade-in animate-delay-300">Manage your automobile parts, services, inventory and billing all in one place with PaperBill's specialized solution.</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;" class="animate-fade-in animate-delay-400">
+                    <a href="#demo" class="btn-ripple hover-scale" style="background-color: white; color: #2563eb; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease-out; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);" onmousedown="createRipple(event, this)">
                         <i class="fas fa-play-circle"></i> Watch Demo
                     </a>
-                    <a href="app.paperbill.in"
-                        style="background-color: transparent; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; border: 2px solid white; transition: all 0.3s;">
+                    <a href="app.paperbill.in" class="btn-ripple hover-scale" style="background-color: transparent; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; border: 2px solid white; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">
                         <i class="fas fa-rocket"></i> Try for Free
                     </a>
                 </div>
-                <div style="margin-top: 2rem; display: flex; align-items: center; gap: 1rem;">
+                <div style="margin-top: 2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;" class="animate-fade-in animate-delay-500">
                     <div style="display: flex;">
-                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #3b82f6; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 1;"
-                            title="Rahul Auto Parts">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #3b82f6; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 1;" title="Rahul Auto Parts" class="hover-grow">
                             <span style="color: white; font-weight: bold;">RA</span>
                         </div>
-                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #10b981; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 2;"
-                            title="City Motors">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #10b981; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 2;" title="City Motors" class="hover-grow">
                             <span style="color: white; font-weight: bold;">CM</span>
                         </div>
-                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #f59e0b; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 3;"
-                            title="Speedway Services">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #f59e0b; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 3;" title="Speedway Services" class="hover-grow">
                             <span style="color: white; font-weight: bold;">SS</span>
                         </div>
                     </div>
@@ -154,104 +330,98 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; z-index: 2; animation: fadeInUp 1s ease-out;">
-                <div style="background-color: white; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); overflow: hidden; transform: perspective(1000px) rotateY(-10deg); transition: all 0.5s ease;"
-                    onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'"
-                    onmouseout="this.style.transform='perspective(1000px) rotateY(-10deg)'">
-                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                        alt="PaperBill Automobile Dashboard" style="width: 100%; height: auto; display: block;">
+            <div style="position: relative; z-index: 2;" class="animate-fade-right animate-delay-200">
+                <div style="background-color: white; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); overflow: hidden; transform: perspective(1000px) rotateY(-10deg); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);" class="hover-shadow-lg card-glow" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-10deg)'">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="PaperBill Automobile Dashboard" style="width: 100%; height: auto; display: block;">
                     <div style="padding: 1.5rem; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
                                 <div style="font-weight: 600; color: #1e293b;">Auto Part Invoice</div>
                                 <div style="font-size: 0.9rem; color: #64748b;">#PB-2023-001245</div>
                             </div>
-                            <div
-                                style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem;">
+                            <div style="background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);">
                                 <i class="fas fa-rupee-sign" style="margin-right: 0.3rem;"></i> 12,450.00
                             </div>
                         </div>
                     </div>
                 </div>
+                <div style="position: absolute; top: -20px; left: -20px; width: 80px; height: 80px; background-color: rgba(245, 158, 11, 0.1); border-radius: 50%; z-index: -1;" class="floating"></div>
+                <div style="position: absolute; bottom: -30px; right: -30px; width: 100px; height: 100px; background-color: rgba(59, 130, 246, 0.1); border-radius: 50%; z-index: -1;" class="floating" animation-delay="2s"></div>
             </div>
         </div>
-        <div
-            style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 1;">
-        </div>
+        <div style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 1;" class="rotating"></div>
     </section>
 
     <!-- Automobile-Specific Features -->
     <section id="features" style="padding: 5rem 2rem; background-color: white;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
-                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Built for <span
-                        style="color: #2563eb;">Automobile Businesses</span></h2>
-                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Specialized features
-                    designed specifically for auto parts dealers, service centers, and showrooms</p>
+            <div style="text-align: center; margin-bottom: 4rem;" class="animate-fade-up">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Built for <span style="color: #2563eb;" class="gradient-text">Automobile Businesses</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Specialized features designed specifically for auto parts dealers, service centers, and showrooms</p>
             </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;" class="feature-grid">
                 <!-- Feature 1 -->
-                <div
-                    style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out;">
-                    <div
-                        style="width: 60px; height: 60px; background-color: #dbeafe; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;">
+                <div style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s ease-out; border: 1px solid #e2e8f0; position: relative; overflow: hidden;" class="animate-scale-in feature-card hover-lift card-glow">
+                    <div style="width: 60px; height: 60px; background-color: #dbeafe; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;" class="feature-icon">
                         <i class="fas fa-cogs" style="color: #2563eb; font-size: 1.5rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Parts Inventory
-                        Management</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Track thousands of auto parts with OEM numbers,
-                        variants, and stock levels in real-time.</p>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Parts Inventory Management</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Track thousands of auto parts with OEM numbers, variants, and stock levels in real-time.</p>
                     <ul style="color: #64748b; padding-left: 1.2rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Barcode/QR code support</li>
-                        <li style="margin-bottom: 0.5rem;">Low stock alerts</li>
-                        <li style="margin-bottom: 0.5rem;">Batch and expiry tracking</li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #2563eb; margin-right: 0.5rem;"></i> Barcode/QR code support
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #2563eb; margin-right: 0.5rem;"></i> Low stock alerts
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #2563eb; margin-right: 0.5rem;"></i> Batch and expiry tracking
+                        </li>
                     </ul>
-                    <div
-                        style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #2563eb transparent transparent;">
-                    </div>
+                    <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #2563eb transparent transparent;"></div>
                 </div>
-
+                
                 <!-- Feature 2 -->
-                <div
-                    style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out 0.2s both;">
-                    <div
-                        style="width: 60px; height: 60px; background-color: #f0fdf4; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;">
+                <div style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s ease-out; border: 1px solid #e2e8f0; position: relative; overflow: hidden;" class="animate-scale-in feature-card hover-lift card-glow animate-delay-200">
+                    <div style="width: 60px; height: 60px; background-color: #f0fdf4; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;" class="feature-icon">
                         <i class="fas fa-wrench" style="color: #10b981; font-size: 1.5rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Service Job
-                        Tracking</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Manage service orders, mechanics, and job status
-                        with our specialized workflow.</p>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Service Job Tracking</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Manage service orders, mechanics, and job status with our specialized workflow.</p>
                     <ul style="color: #64748b; padding-left: 1.2rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Service history for vehicles</li>
-                        <li style="margin-bottom: 0.5rem;">Mechanic assignment</li>
-                        <li style="margin-bottom: 0.5rem;">Job status updates</li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #10b981; margin-right: 0.5rem;"></i> Service history for vehicles
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #10b981; margin-right: 0.5rem;"></i> Mechanic assignment
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #10b981; margin-right: 0.5rem;"></i> Job status updates
+                        </li>
                     </ul>
-                    <div
-                        style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #10b981 transparent transparent;">
-                    </div>
+                    <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #10b981 transparent transparent;"></div>
                 </div>
-
+                
                 <!-- Feature 3 -->
-                <div
-                    style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out 0.4s both;">
-                    <div
-                        style="width: 60px; height: 60px; background-color: #fef2f2; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;">
+                <div style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s ease-out; border: 1px solid #e2e8f0; position: relative; overflow: hidden;" class="animate-scale-in feature-card hover-lift card-glow animate-delay-400">
+                    <div style="width: 60px; height: 60px; background-color: #fef2f2; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;" class="feature-icon">
                         <i class="fas fa-file-invoice-dollar" style="color: #ef4444; font-size: 1.5rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
-                        Automobile-Specific Invoicing</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Generate professional invoices with vehicle
-                        details, parts, and labor charges.</p>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Automobile-Specific Invoicing</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Generate professional invoices with vehicle details, parts, and labor charges.</p>
                     <ul style="color: #64748b; padding-left: 1.2rem; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">Vehicle registration details</li>
-                        <li style="margin-bottom: 0.5rem;">Parts + labor breakdown</li>
-                        <li style="margin-bottom: 0.5rem;">GST-compliant formats</li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #ef4444; margin-right: 0.5rem;"></i> Vehicle registration details
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #ef4444; margin-right: 0.5rem;"></i> Parts + labor breakdown
+                        </li>
+                        <li style="margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: #ef4444; margin-right: 0.5rem;"></i> GST-compliant formats
+                        </li>
                     </ul>
-                    <div
-                        style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #ef4444 transparent transparent;">
-                    </div>
+                    <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #ef4444 transparent transparent;"></div>
                 </div>
             </div>
         </div>
@@ -260,64 +430,60 @@
     <!-- Automobile Business Types -->
     <section id="industries" style="padding: 5rem 2rem; background-color: #f8fafc;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
-                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Perfect for All <span
-                        style="color: #2563eb;">Auto Businesses</span></h2>
-                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Tailored solutions for
-                    different types of automobile businesses</p>
+            <div style="text-align: center; margin-bottom: 4rem;" class="animate-fade-up">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Perfect for All <span style="color: #2563eb;" class="gradient-text">Auto Businesses</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Tailored solutions for different types of automobile businesses</p>
             </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;" class="business-grid">
                 <!-- Type 1 -->
-                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #2563eb; animation: fadeInUp 1s ease-out;"
-                    onmouseover="this.style.transform='translateY(-10px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div
-                        style="width: 80px; height: 80px; background-color: #dbeafe; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s ease-out; border-top: 4px solid #2563eb;" class="animate-scale-in hover-lift card-glow">
+                    <div style="width: 80px; height: 80px; background-color: #dbeafe; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;" class="feature-icon">
                         <i class="fas fa-car-alt" style="color: #2563eb; font-size: 2rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Auto Parts
-                        Dealers</h3>
-                    <p style="color: #64748b;">Manage inventory of thousands of parts with variants and compatibility.
-                    </p>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Auto Parts Dealers</h3>
+                    <p style="color: #64748b;">Manage inventory of thousands of parts with variants and compatibility.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" style="color: #2563eb; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">
+                            Learn more <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+                        </a>
+                    </div>
                 </div>
-
+                
                 <!-- Type 2 -->
-                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #10b981; animation: fadeInUp 1s ease-out 0.2s both;"
-                    onmouseover="this.style.transform='translateY(-10px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div
-                        style="width: 80px; height: 80px; background-color: #dcfce7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s ease-out; border-top: 4px solid #10b981;" class="animate-scale-in hover-lift card-glow animate-delay-200">
+                    <div style="width: 80px; height: 80px; background-color: #dcfce7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;" class="feature-icon">
                         <i class="fas fa-tools" style="color: #10b981; font-size: 2rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Service Centers
-                    </h3>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Service Centers</h3>
                     <p style="color: #64748b;">Track service jobs, mechanics, and customer vehicle history.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" style="color: #10b981; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">
+                            Learn more <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+                        </a>
+                    </div>
                 </div>
-
+                
                 <!-- Type 3 -->
-                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #f59e0b; animation: fadeInUp 1s ease-out 0.4s both;"
-                    onmouseover="this.style.transform='translateY(-10px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div
-                        style="width: 80px; height: 80px; background-color: #fef3c7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s ease-out; border-top: 4px solid #f59e0b;" class="animate-scale-in hover-lift card-glow animate-delay-400">
+                    <div style="width: 80px; height: 80px; background-color: #fef3c7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;" class="feature-icon">
                         <i class="fas fa-gas-pump" style="color: #f59e0b; font-size: 2rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Accessories
-                        Shops</h3>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Accessories Shops</h3>
                     <p style="color: #64748b;">Manage fitments, compatibility and installation services.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" style="color: #f59e0b; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">
+                            Learn more <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+                        </a>
+                    </div>
                 </div>
-
+                
                 <!-- Type 4 -->
-                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #8b5cf6; animation: fadeInUp 1s ease-out 0.6s both;"
-                    onmouseover="this.style.transform='translateY(-10px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-                    <div
-                        style="width: 80px; height: 80px; background-color: #ede9fe; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s ease-out; border-top: 4px solid #8b5cf6;" class="animate-scale-in hover-lift animate-delay-600">
+                    <div style="width: 80px; height: 80px; background-color: #ede9fe; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
                         <i class="fas fa-motorcycle" style="color: #8b5cf6; font-size: 2rem;"></i>
                     </div>
-                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Two-Wheeler
-                        Showrooms</h3>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Two-Wheeler Showrooms</h3>
                     <p style="color: #64748b;">Manage test drives, insurance, and financing options.</p>
                 </div>
             </div>
@@ -325,189 +491,136 @@
     </section>
 
     <!-- Demo Video Section -->
-    <section id="demo"
-        style="padding: 5rem 2rem; background: linear-gradient(135deg, #1e293b, #0f172a); color: white; position: relative; overflow: hidden;">
+    <section id="demo" style="padding: 5rem 2rem; background: linear-gradient(135deg, #1e293b, #0f172a); color: white; position: relative; overflow: hidden;">
         <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-                <div style="animation: fadeInUp 1s ease-out;">
-                    <h2 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;">See How
-                        PaperBill Works for <span style="color: #f59e0b;">Automobile Businesses</span></h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Watch our 2-minute demo to see how
-                        PaperBill can transform your auto business operations.</p>
+                <div class="animate-fade-left">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;">See How PaperBill Works for <span style="color: #f59e0b;">Automobile Businesses</span></h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Watch our 2-minute demo to see how PaperBill can transform your auto business operations.</p>
                     <ul style="padding-left: 1.5rem; margin-bottom: 2.5rem;">
-                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-                            <i class="fas fa-check-circle"
-                                style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
+                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;" class="animate-fade-in animate-delay-100">
+                            <i class="fas fa-check-circle" style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
                             <span style="font-weight: 500;">Specialized automobile billing</span>
                         </li>
-                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-                            <i class="fas fa-check-circle"
-                                style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
+                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;" class="animate-fade-in animate-delay-200">
+                            <i class="fas fa-check-circle" style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
                             <span style="font-weight: 500;">Parts inventory management</span>
                         </li>
-                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-                            <i class="fas fa-check-circle"
-                                style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
+                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;" class="animate-fade-in animate-delay-300">
+                            <i class="fas fa-check-circle" style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
                             <span style="font-weight: 500;">Service job tracking</span>
                         </li>
                     </ul>
-                    <a href="app.paperbill.in"
-                        style="background-color: #f59e0b; color: #1e293b; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;">
+                    <a href="app.paperbill.in" class="btn-ripple hover-scale" style="background-color: #f59e0b; color: #1e293b; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)" class="animate-fade-in animate-delay-400">
                         <i class="fas fa-play"></i> Watch Full Demo
                     </a>
                 </div>
-                <div style="position: relative; animation: fadeInUp 1s ease-out 0.2s both;">
-                    <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: perspective(1000px) rotateY(10deg); transition: all 0.5s ease;"
-                        onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'"
-                        onmouseout="this.style.transform='perspective(1000px) rotateY(10deg)'">
+                <div style="position: relative;" class="animate-fade-right animate-delay-200">
+                    <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: perspective(1000px) rotateY(10deg); transition: all 0.5s ease-out;" class="hover-shadow-lg" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'" onmouseout="this.style.transform='perspective(1000px) rotateY(10deg)'">
                         <div style="padding-top: 56.25%; background-color: #334155; position: relative;">
-                            <div
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                                <div
-                                    style="width: 80px; height: 80px; background-color: rgba(245, 158, 11, 0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; animation: pulse 2s infinite;">
-                                    <div
-                                        style="width: 60px; height: 60px; background-color: rgba(245, 158, 11, 0.4); border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                                <div style="width: 80px; height: 80px; background-color: rgba(245, 158, 11, 0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; animation: pulse 2s infinite;">
+                                    <div style="width: 60px; height: 60px; background-color: rgba(245, 158, 11, 0.4); border-radius: 50%; display: flex; justify-content: center; align-items: center;">
                                         <i class="fas fa-play" style="color: white; font-size: 1.5rem;"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div
-                        style="position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; border-radius: 50%; background-color: rgba(245, 158, 11, 0.1); z-index: -1;">
-                    </div>
+                    <div style="position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; border-radius: 50%; background-color: rgba(245, 158, 11, 0.1); z-index: -1;"></div>
                 </div>
             </div>
         </div>
-        <div
-            style="position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%); z-index: 1;">
-        </div>
+        <div style="position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%); z-index: 1;"></div>
     </section>
 
-    <!-- Pricing Section -->
+        <!-- Pricing Section -->
     <section id="pricing" style="padding: 5rem 2rem; background-color: white;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
-                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Simple, Transparent <span
-                        style="color: #2563eb;">Pricing</span></h2>
-                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">No hidden fees. Cancel
-                    anytime. Start with our free plan.</p>
+            <div style="text-align: center; margin-bottom: 4rem;" class="animate-fade-up">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Simple, Transparent <span style="color: #2563eb;">Pricing</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">No hidden fees. Cancel anytime. Start with our free plan.</p>
             </div>
-
-            <div
-                style="display: flex; justify-content: center; margin-bottom: 2rem; animation: fadeInUp 1s ease-out 0.2s both;">
+            
+            <div style="display: flex; justify-content: center; margin-bottom: 2rem;" class="animate-fade-up animate-delay-100">
                 <div style="background-color: #e2e8f0; border-radius: 8px; padding: 0.3rem; display: inline-flex;">
-                    <button
-                        style="background-color: #2563eb; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Monthly</button>
-                    <button
-                        style="background-color: transparent; color: #64748b; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Yearly
-                        (Save 20%)</button>
+                    <button id="monthlyBtn" style="background-color: #2563eb; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease-out;" class="btn-ripple" onmousedown="createRipple(event, this)">Monthly</button>
+                    <button id="yearlyBtn" style="background-color: transparent; color: #64748b; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease-out;" class="btn-ripple" onmousedown="createRipple(event, this)">Yearly (Save 20%)</button>
                 </div>
             </div>
-
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <!-- Free Plan -->
-                <div
-                    style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; transition: all 0.3s; text-align: center; animation: fadeInUp 1s ease-out;">
+                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; transition: all 0.3s ease-out; text-align: center;" class="animate-scale-in hover-lift">
                     <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Starter</h3>
                     <div style="font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; color: #2563eb;">
                         ₹0<span style="font-size: 1rem; color: #64748b;">/month</span>
                     </div>
-                    <p style="color: #64748b; margin-bottom: 2rem;">Perfect for small auto businesses getting started
-                    </p>
+                    <p style="color: #64748b; margin-bottom: 2rem;">Perfect for small auto businesses getting started</p>
                     <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 2rem;">
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
                             <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> 50 invoices/month
                         </li>
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
                             <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Basic inventory
                         </li>
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
                             <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Email support
                         </li>
                         <li style="padding: 0.8rem 0; display: flex; align-items: center;">
-                            <i class="fas fa-times" style="color: #ef4444; margin-right: 0.8rem;"></i> Auto parts
-                            catalog
+                            <i class="fas fa-times" style="color: #ef4444; margin-right: 0.8rem;"></i> Auto parts catalog
                         </li>
                     </ul>
-                    <a href="app.paperbill.in"
-                        style="width: 100%; background-color: #e2e8f0; color: #1e293b; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s;">Get
-                        Started</a>
+                    <a href="app.paperbill.in" class="btn-ripple hover-scale" style="width: 100%; background-color: #e2e8f0; color: #1e293b; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">Get Started</a>
                 </div>
-
+                
                 <!-- Professional Plan -->
-                <div
-                    style="border: 2px solid #2563eb; border-radius: 12px; padding: 2rem; transition: all 0.3s; text-align: center; position: relative; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05); animation: fadeInUp 1s ease-out 0.2s both;">
-                    <div
-                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: #2563eb; color: white; padding: 0.3rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
-                        BEST FOR AUTO SHOPS</div>
-                    <h3 style="margin-top: 1.5rem; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
-                        Professional</h3>
+                <div style="border: 2px solid #2563eb; border-radius: 12px; padding: 2rem; transition: all 0.3s ease-out; text-align: center; position: relative; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);" class="animate-scale-in hover-lift animate-delay-200">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: #2563eb; color: white; padding: 0.3rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">BEST FOR AUTO SHOPS</div>
+                    <h3 style="margin-top: 1.5rem; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Professional</h3>
                     <div style="font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; color: #2563eb;">
                         ₹999<span style="font-size: 1rem; color: #64748b;">/month</span>
                     </div>
                     <p style="color: #64748b; margin-bottom: 2rem;">Ideal for growing automobile businesses</p>
                     <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 2rem;">
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
-                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> 500
-                            invoices/month
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> 500 invoices/month
                         </li>
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
-                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Advanced
-                            inventory
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Advanced inventory
                         </li>
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
-                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Auto parts
-                            catalog
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Auto parts catalog
                         </li>
                         <li style="padding: 0.8rem 0; display: flex; align-items: center;">
                             <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Priority support
                         </li>
                     </ul>
-                    <a href="app.paperbill.in"
-                        style="width: 100%; background-color: #2563eb; color: white; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s;">Start
-                        14-Day Trial</a>
+                    <a href="app.paperbill.in" class="btn-ripple hover-scale" style="width: 100%; background-color: #2563eb; color: white; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">Start 14-Day Trial</a>
                 </div>
-
+                
                 <!-- Enterprise Plan -->
-                <div
-                    style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; transition: all 0.3s; text-align: center; animation: fadeInUp 1s ease-out 0.4s both;">
+                <div style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; transition: all 0.3s ease-out; text-align: center;" class="animate-scale-in hover-lift animate-delay-400">
                     <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Enterprise</h3>
                     <div style="font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; color: #2563eb;">
                         ₹1999<span style="font-size: 1rem; color: #64748b;">/month</span>
                     </div>
-                    <p style="color: #64748b; margin-bottom: 2rem;">For large auto businesses with multiple locations
-                    </p>
+                    <p style="color: #64748b; margin-bottom: 2rem;">For large auto businesses with multiple locations</p>
                     <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 2rem;">
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
-                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Unlimited
-                            invoices
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Unlimited invoices
                         </li>
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
-                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Multi-location
-                            support
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Multi-location support
                         </li>
-                        <li
-                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
-                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Dedicated account
-                            manager
+                        <li style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Dedicated account manager
                         </li>
                         <li style="padding: 0.8rem 0; display: flex; align-items: center;">
                             <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> API access
                         </li>
                     </ul>
-                    <a href="app.paperbill.in"
-                        style="width: 100%; background-color: #2563eb; color: white; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s;">Contact
-                        Sales</a>
+                    <a href="app.paperbill.in" class="btn-ripple hover-scale" style="width: 100%; background-color: #2563eb; color: white; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -516,29 +629,22 @@
     <!-- Testimonials Section -->
     <section id="testimonials" style="padding: 5rem 2rem; background-color: #f8fafc;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
-                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">What Our <span
-                        style="color: #2563eb;">Customers Say</span></h2>
-                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Don't just take our word
-                    for it - hear from some of our automobile business customers</p>
+            <div style="text-align: center; margin-bottom: 4rem;" class="animate-fade-up">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">What Our <span style="color: #2563eb;">Customers Say</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Don't just take our word for it - hear from some of our automobile business customers</p>
             </div>
-
+            
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                 <!-- Testimonial 1 -->
-                <div
-                    style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); animation: fadeInUp 1s ease-out;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);" class="animate-scale-in">
                     <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <div
-                            style="width: 60px; height: 60px; border-radius: 50%; background-color: #dbeafe; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #2563eb;">
-                            AK</div>
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #dbeafe; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #2563eb;">AK</div>
                         <div>
                             <div style="font-weight: 600; font-size: 1.1rem;">Amit Kumar</div>
                             <div style="color: #64748b; font-size: 0.9rem;">Owner, City Auto Parts</div>
                         </div>
                     </div>
-                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"PaperBill has transformed our
-                        parts business. We can now track inventory across 3 locations in real-time and our billing
-                        process is 3x faster."</p>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"PaperBill has transformed our parts business. We can now track inventory across 3 locations in real-time and our billing process is 3x faster."</p>
                     <div style="color: #f59e0b;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -547,22 +653,17 @@
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
-
+                
                 <!-- Testimonial 2 -->
-                <div
-                    style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); animation: fadeInUp 1s ease-out 0.2s both;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);" class="animate-scale-in animate-delay-200">
                     <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <div
-                            style="width: 60px; height: 60px; border-radius: 50%; background-color: #dcfce7; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #10b981;">
-                            RS</div>
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #dcfce7; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #10b981;">RS</div>
                         <div>
                             <div style="font-weight: 600; font-size: 1.1rem;">Rajesh Sharma</div>
                             <div style="color: #64748b; font-size: 0.9rem;">Manager, Speedway Services</div>
                         </div>
                     </div>
-                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"The service job tracking
-                        feature alone has saved us 10 hours per week in administrative work. Our mechanics love the
-                        simple interface."</p>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"The service job tracking feature alone has saved us 10 hours per week in administrative work. Our mechanics love the simple interface."</p>
                     <div style="color: #f59e0b;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -571,22 +672,17 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
-
+                
                 <!-- Testimonial 3 -->
-                <div
-                    style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); animation: fadeInUp 1s ease-out 0.4s both;">
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);" class="animate-scale-in animate-delay-400">
                     <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-                        <div
-                            style="width: 60px; height: 60px; border-radius: 50%; background-color: #fef3c7; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #d97706;">
-                            PM</div>
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #fef3c7; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #d97706;">PM</div>
                         <div>
                             <div style="font-weight: 600; font-size: 1.1rem;">Priya Mehta</div>
                             <div style="color: #64748b; font-size: 0.9rem;">CEO, AutoStyle Accessories</div>
                         </div>
                     </div>
-                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"Our customers love the
-                        professional invoices with vehicle details. PaperBill helped us go paperless and improved our
-                        brand image."</p>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"Our customers love the professional invoices with vehicle details. PaperBill helped us go paperless and improved our brand image."</p>
                     <div style="color: #f59e0b;">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -600,116 +696,85 @@
     </section>
 
     <!-- CTA Section -->
-    <section
-        style="padding: 5rem 2rem; background: linear-gradient(135deg, #2563eb, #1e40af); color: white; text-align: center; position: relative; overflow: hidden;">
-        <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2; animation: fadeInUp 1s ease-out;">
-            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Transform Your Auto
-                Business?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Join thousands of automobile businesses
-                using PaperBill to streamline operations and boost sales.</p>
+    <section style="padding: 5rem 2rem; background: linear-gradient(135deg, #2563eb, #1e40af); color: white; text-align: center; position: relative; overflow: hidden;">
+        <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2;" class="animate-fade-up">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Transform Your Auto Business?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Join thousands of automobile businesses using PaperBill to streamline operations and boost sales.</p>
             <div style="display: flex; justify-content: center; gap: 1.5rem;">
-                <a href="app.paperbill.in"
-                    style="background-color: white; color: #2563eb; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                <a href="app.paperbill.in" class="btn-ripple hover-scale" style="background-color: white; color: #2563eb; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease-out; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);" onmousedown="createRipple(event, this)">
                     <i class="fas fa-rocket"></i> Start Free Trial
                 </a>
-                <a href="#demo"
-                    style="background-color: transparent; color: white; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid white; transition: all 0.3s;">
+                <a href="#demo" class="btn-ripple hover-scale" style="background-color: transparent; color: white; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid white; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">
                     <i class="fas fa-play-circle"></i> Watch Demo
                 </a>
             </div>
         </div>
-        <div
-            style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 1;">
-        </div>
+        <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 1;"></div>
     </section>
 
     <!-- Footer -->
     <footer style="background-color: #1e293b; color: white; padding: 4rem 2rem 2rem;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
-                <div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div class="animate-fade-in">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
-                        <div
-                            style="width: 40px; height: 40px; background-color: #2563eb; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                        <div style="width: 40px; height: 40px; background-color: #2563eb; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 1.2rem; transition: all 0.3s ease-out;" class="hover-scale">
                             BILL
                         </div>
                         <span style="font-weight: 700; font-size: 1.5rem; color: white;">PaperBill</span>
                     </div>
-                    <p style="color: #94a3b8; margin-bottom: 1.5rem;">The complete billing solution for automobile
-                        businesses.</p>
+                    <p style="color: #94a3b8; margin-bottom: 1.5rem;">The complete billing solution for automobile businesses.</p>
                     <div style="display: flex; gap: 1rem;">
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                        <a href="#" class="btn-ripple hover-scale" style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                        <a href="#" class="btn-ripple hover-scale" style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                        <a href="#" class="btn-ripple hover-scale" style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                        <a href="#" class="btn-ripple hover-scale" style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: all 0.3s ease-out;" onmousedown="createRipple(event, this)">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
-
-                <div>
+                
+                <div class="animate-fade-in animate-delay-100">
                     <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Product</h3>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Features</a></li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Pricing</a></li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Industries</a>
-                        </li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Updates</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#features" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Features</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#pricing" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Pricing</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#industries" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Industries</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#demo" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Updates</a></li>
                     </ul>
                 </div>
-
-                <div>
+                
+                <div class="animate-fade-in animate-delay-200">
                     <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Company</h3>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">About Us</a></li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Careers</a></li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Blog</a></li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">About Us</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Careers</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Blog</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Contact</a></li>
                     </ul>
                 </div>
-
-                <div>
+                
+                <div class="animate-fade-in animate-delay-300">
                     <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Support</h3>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Help Center</a>
-                        </li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Live Chat</a>
-                        </li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">API Docs</a></li>
-                        <li style="margin-bottom: 0.8rem;"><a href="#"
-                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Community</a>
-                        </li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Help Center</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Live Chat</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">API Docs</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Community</a></li>
                     </ul>
                 </div>
-
-                <div>
+                
+                <div class="animate-fade-in animate-delay-400">
                     <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Contact</h3>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
-                            <i class="fas fa-map-marker-alt"
-                                style="color: #94a3b8; margin-right: 0.8rem; width: 20px;"></i>
+                            <i class="fas fa-map-marker-alt" style="color: #94a3b8; margin-right: 0.8rem; width: 20px;"></i>
                             <span style="color: #94a3b8;">123 Business Park, Bangalore, India</span>
                         </li>
                         <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
@@ -723,32 +788,95 @@
                     </ul>
                 </div>
             </div>
-
-            <div
-                style="border-top: 1px solid #334155; padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+            
+            <div style="border-top: 1px solid #334155; padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
                 <div style="color: #94a3b8; margin-bottom: 1rem;">© 2023 PaperBill. All rights reserved.</div>
                 <div style="display: flex; gap: 1.5rem; margin-bottom: 1rem;">
-                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Privacy
-                        Policy</a>
-                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Terms of
-                        Service</a>
-                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Cookie Policy</a>
+                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Privacy Policy</a>
+                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Terms of Service</a>
+                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s ease-out;">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple hover effects
-        document.querySelectorAll('a, button').forEach(element => {
-            element.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-2px)';
+        // Ripple effect for buttons
+        function createRipple(event, element) {
+            const circle = document.createElement("span");
+            const diameter = Math.max(element.clientWidth, element.clientHeight);
+            const radius = diameter / 2;
+            
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - (element.getBoundingClientRect().left + radius)}px`;
+            circle.style.top = `${event.clientY - (element.getBoundingClientRect().top + radius)}px`;
+            circle.classList.add("ripple");
+            
+            const ripple = element.getElementsByClassName("ripple")[0];
+            if (ripple) {
+                ripple.remove();
+            }
+            
+            element.appendChild(circle);
+        }
+
+        // Toggle between monthly and yearly pricing
+        const monthlyBtn = document.getElementById('monthlyBtn');
+        const yearlyBtn = document.getElementById('yearlyBtn');
+        
+        if (monthlyBtn && yearlyBtn) {
+            monthlyBtn.addEventListener('click', function() {
+                this.style.backgroundColor = '#2563eb';
+                this.style.color = 'white';
+                yearlyBtn.style.backgroundColor = 'transparent';
+                yearlyBtn.style.color = '#64748b';
+                // Update prices to monthly here
             });
-            element.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
+            
+            yearlyBtn.addEventListener('click', function() {
+                this.style.backgroundColor = '#2563eb';
+                this.style.color = 'white';
+                monthlyBtn.style.backgroundColor = 'transparent';
+                monthlyBtn.style.color = '#64748b';
+                // Update prices to yearly here
             });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.animate-fade-in, .animate-fade-up, .animate-fade-down, .animate-fade-left, .animate-fade-right, .animate-scale-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translate(0, 0) scale(1)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
         });
     </script>
 </body>
-
 </html>
