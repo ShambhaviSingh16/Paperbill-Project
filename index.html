@@ -1,114 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automobile Billing Software - Paperbill</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f6fa;
-      color: #333;
-    }
-    header, footer {
-      background: #00264d;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 1rem;
-      text-align: center;
-      animation: fadeDown 1s ease-in-out;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-      animation: slideIn 1.2s ease-in-out;
-    }
-    .feature {
-      background: white;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .feature:hover {
-      transform: scale(1.03);
-    }
-    .feature h2 {
-      color: #00264d;
-      margin-bottom: 0.5rem;
-    }
-    .feature p {
-      line-height: 1.6;
-    }
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .cta a {
-      background: #0077ff;
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .cta a:hover {
-      background: #005ecb;
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(100px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperBill - Automobile Shop Billing Software | Streamline Your Auto Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h2>Paperbill - Smart Billing for Automobile Shops</h2>
-  </header>
 
-  <h1>Automobile Billing Software</h1>
+<body
+    style="margin: 0; font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6;">
 
-  <div class="container">
-    <div class="feature">
-      <h2>Manage Vehicle Inventory</h2>
-      <p>Keep track of cars, bikes, spare parts, and accessories with detailed inventory logs.</p>
-    </div>
-    <div class="feature">
-      <h2>GST & Invoice Ready</h2>
-      <p>Create GST-ready invoices in a few clicks and maintain tax-compliant reports effortlessly.</p>
-    </div>
-    <div class="feature">
-      <h2>Customer History & Service Records</h2>
-      <p>Automatically save customer vehicle data, past services, and billing information.</p>
-    </div>
-    <div class="feature">
-      <h2>Mobile & Desktop Access</h2>
-      <p>Use Paperbill on mobile and desktop with synced data anytime, anywhere.</p>
-    </div>
+    <!-- Modern Header with Logo -->
+    <header
+        style="background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div
+                        style="width: 40px; height: 40px; background-color: #2563eb; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                        BILL
+                    </div>
+                    <span style="font-weight: 700; font-size: 1.5rem; color: #1e293b;">PaperBill</span>
+                </div>
+                <nav style="margin-left: 3rem; display: none;">
+                    <a href="#features"
+                        style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Features</a>
+                    <a href="#industries"
+                        style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Industries</a>
+                    <a href="#pricing"
+                        style="color: #64748b; text-decoration: none; margin-right: 1.5rem; font-weight: 500; transition: color 0.3s;">Pricing</a>
+                    <a href="#testimonials"
+                        style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s;">Testimonials</a>
+                </nav>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="app.paperbill.in"
+                    style="background-color: #2563eb; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-external-link-alt"></i> Web App
+                </a>
+                <button style="background-color: transparent; border: none; cursor: pointer; display: none;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem; color: #334155;"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <div class="cta">
-      <a href="https://app.paperbill.in">🚀 Try Paperbill Now</a>
-    </div>
-  </div>
+    <!-- Hero Section for Automobile Businesses -->
+    <section
+        style="background: linear-gradient(135deg, #1e40af, #2563eb); color: white; padding: 4rem 2rem; position: relative; overflow: hidden;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+            <div style="position: relative; z-index: 2; animation: fadeInDown 1s ease-out;">
+                <div
+                    style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: 500;">
+                    <i class="fas fa-car" style="margin-right: 0.5rem;"></i> Automobile Special
+                </div>
+                <h1 style="font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;">Complete Billing
+                    Solution for <span style="border-bottom: 4px solid #f59e0b;">Auto Businesses</span></h1>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Manage your automobile parts,
+                    services, inventory and billing all in one place with PaperBill's specialized solution.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#demo"
+                        style="background-color: white; color: #2563eb; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s;">
+                        <i class="fas fa-play-circle"></i> Watch Demo
+                    </a>
+                    <a href="app.paperbill.in"
+                        style="background-color: transparent; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; border: 2px solid white; transition: all 0.3s;">
+                        <i class="fas fa-rocket"></i> Try for Free
+                    </a>
+                </div>
+                <div style="margin-top: 2rem; display: flex; align-items: center; gap: 1rem;">
+                    <div style="display: flex;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #3b82f6; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 1;"
+                            title="Rahul Auto Parts">
+                            <span style="color: white; font-weight: bold;">RA</span>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #10b981; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 2;"
+                            title="City Motors">
+                            <span style="color: white; font-weight: bold;">CM</span>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background-color: #f59e0b; display: flex; justify-content: center; align-items: center; margin-left: -10px; z-index: 3;"
+                            title="Speedway Services">
+                            <span style="color: white; font-weight: bold;">SS</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600;">Trusted by 500+ Auto Businesses</div>
+                        <div style="display: flex; margin-top: 0.3rem;">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <span style="margin-left: 0.5rem; font-weight: 500;">4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative; z-index: 2; animation: fadeInUp 1s ease-out;">
+                <div style="background-color: white; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); overflow: hidden; transform: perspective(1000px) rotateY(-10deg); transition: all 0.5s ease;"
+                    onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'"
+                    onmouseout="this.style.transform='perspective(1000px) rotateY(-10deg)'">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="PaperBill Automobile Dashboard" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 1.5rem; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: 600; color: #1e293b;">Auto Part Invoice</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">#PB-2023-001245</div>
+                            </div>
+                            <div
+                                style="background-color: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem;">
+                                <i class="fas fa-rupee-sign" style="margin-right: 0.3rem;"></i> 12,450.00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 1;">
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Paperbill | <a href="https://paperbill.in" style="color:#fff; text-decoration:underline;">Visit Main Site</a></p>
-  </footer>
+    <!-- Automobile-Specific Features -->
+    <section id="features" style="padding: 5rem 2rem; background-color: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Built for <span
+                        style="color: #2563eb;">Automobile Businesses</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Specialized features
+                    designed specifically for auto parts dealers, service centers, and showrooms</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Feature 1 -->
+                <div
+                    style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out;">
+                    <div
+                        style="width: 60px; height: 60px; background-color: #dbeafe; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;">
+                        <i class="fas fa-cogs" style="color: #2563eb; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Parts Inventory
+                        Management</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Track thousands of auto parts with OEM numbers,
+                        variants, and stock levels in real-time.</p>
+                    <ul style="color: #64748b; padding-left: 1.2rem; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Barcode/QR code support</li>
+                        <li style="margin-bottom: 0.5rem;">Low stock alerts</li>
+                        <li style="margin-bottom: 0.5rem;">Batch and expiry tracking</li>
+                    </ul>
+                    <div
+                        style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #2563eb transparent transparent;">
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out 0.2s both;">
+                    <div
+                        style="width: 60px; height: 60px; background-color: #f0fdf4; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;">
+                        <i class="fas fa-wrench" style="color: #10b981; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Service Job
+                        Tracking</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Manage service orders, mechanics, and job status
+                        with our specialized workflow.</p>
+                    <ul style="color: #64748b; padding-left: 1.2rem; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Service history for vehicles</li>
+                        <li style="margin-bottom: 0.5rem;">Mechanic assignment</li>
+                        <li style="margin-bottom: 0.5rem;">Job status updates</li>
+                    </ul>
+                    <div
+                        style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #10b981 transparent transparent;">
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    style="background-color: #f8fafc; border-radius: 12px; padding: 2rem; transition: all 0.3s; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out 0.4s both;">
+                    <div
+                        style="width: 60px; height: 60px; background-color: #fef2f2; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem;">
+                        <i class="fas fa-file-invoice-dollar" style="color: #ef4444; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+                        Automobile-Specific Invoicing</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Generate professional invoices with vehicle
+                        details, parts, and labor charges.</p>
+                    <ul style="color: #64748b; padding-left: 1.2rem; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Vehicle registration details</li>
+                        <li style="margin-bottom: 0.5rem;">Parts + labor breakdown</li>
+                        <li style="margin-bottom: 0.5rem;">GST-compliant formats</li>
+                    </ul>
+                    <div
+                        style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 60px 60px 0; border-color: transparent #ef4444 transparent transparent;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automobile Business Types -->
+    <section id="industries" style="padding: 5rem 2rem; background-color: #f8fafc;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Perfect for All <span
+                        style="color: #2563eb;">Auto Businesses</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Tailored solutions for
+                    different types of automobile businesses</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <!-- Type 1 -->
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #2563eb; animation: fadeInUp 1s ease-out;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="width: 80px; height: 80px; background-color: #dbeafe; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-car-alt" style="color: #2563eb; font-size: 2rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Auto Parts
+                        Dealers</h3>
+                    <p style="color: #64748b;">Manage inventory of thousands of parts with variants and compatibility.
+                    </p>
+                </div>
+
+                <!-- Type 2 -->
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #10b981; animation: fadeInUp 1s ease-out 0.2s both;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="width: 80px; height: 80px; background-color: #dcfce7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-tools" style="color: #10b981; font-size: 2rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Service Centers
+                    </h3>
+                    <p style="color: #64748b;">Track service jobs, mechanics, and customer vehicle history.</p>
+                </div>
+
+                <!-- Type 3 -->
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #f59e0b; animation: fadeInUp 1s ease-out 0.4s both;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="width: 80px; height: 80px; background-color: #fef3c7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-gas-pump" style="color: #f59e0b; font-size: 2rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Accessories
+                        Shops</h3>
+                    <p style="color: #64748b;">Manage fitments, compatibility and installation services.</p>
+                </div>
+
+                <!-- Type 4 -->
+                <div style="background-color: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: all 0.3s; border-top: 4px solid #8b5cf6; animation: fadeInUp 1s ease-out 0.6s both;"
+                    onmouseover="this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="width: 80px; height: 80px; background-color: #ede9fe; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-motorcycle" style="color: #8b5cf6; font-size: 2rem;"></i>
+                    </div>
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Two-Wheeler
+                        Showrooms</h3>
+                    <p style="color: #64748b;">Manage test drives, insurance, and financing options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section id="demo"
+        style="padding: 5rem 2rem; background: linear-gradient(135deg, #1e293b, #0f172a); color: white; position: relative; overflow: hidden;">
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div style="animation: fadeInUp 1s ease-out;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;">See How
+                        PaperBill Works for <span style="color: #f59e0b;">Automobile Businesses</span></h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Watch our 2-minute demo to see how
+                        PaperBill can transform your auto business operations.</p>
+                    <ul style="padding-left: 1.5rem; margin-bottom: 2.5rem;">
+                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle"
+                                style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
+                            <span style="font-weight: 500;">Specialized automobile billing</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle"
+                                style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
+                            <span style="font-weight: 500;">Parts inventory management</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+                            <i class="fas fa-check-circle"
+                                style="position: absolute; left: 0; top: 0.2rem; color: #f59e0b;"></i>
+                            <span style="font-weight: 500;">Service job tracking</span>
+                        </li>
+                    </ul>
+                    <a href="app.paperbill.in"
+                        style="background-color: #f59e0b; color: #1e293b; text-decoration: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s;">
+                        <i class="fas fa-play"></i> Watch Full Demo
+                    </a>
+                </div>
+                <div style="position: relative; animation: fadeInUp 1s ease-out 0.2s both;">
+                    <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: perspective(1000px) rotateY(10deg); transition: all 0.5s ease;"
+                        onmouseover="this.style.transform='perspective(1000px) rotateY(0deg)'"
+                        onmouseout="this.style.transform='perspective(1000px) rotateY(10deg)'">
+                        <div style="padding-top: 56.25%; background-color: #334155; position: relative;">
+                            <div
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                                <div
+                                    style="width: 80px; height: 80px; background-color: rgba(245, 158, 11, 0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; animation: pulse 2s infinite;">
+                                    <div
+                                        style="width: 60px; height: 60px; background-color: rgba(245, 158, 11, 0.4); border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                                        <i class="fas fa-play" style="color: white; font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; border-radius: 50%; background-color: rgba(245, 158, 11, 0.1); z-index: -1;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            style="position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0) 70%); z-index: 1;">
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" style="padding: 5rem 2rem; background-color: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Simple, Transparent <span
+                        style="color: #2563eb;">Pricing</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">No hidden fees. Cancel
+                    anytime. Start with our free plan.</p>
+            </div>
+
+            <div
+                style="display: flex; justify-content: center; margin-bottom: 2rem; animation: fadeInUp 1s ease-out 0.2s both;">
+                <div style="background-color: #e2e8f0; border-radius: 8px; padding: 0.3rem; display: inline-flex;">
+                    <button
+                        style="background-color: #2563eb; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Monthly</button>
+                    <button
+                        style="background-color: transparent; color: #64748b; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Yearly
+                        (Save 20%)</button>
+                </div>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Free Plan -->
+                <div
+                    style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; transition: all 0.3s; text-align: center; animation: fadeInUp 1s ease-out;">
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Starter</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; color: #2563eb;">
+                        ₹0<span style="font-size: 1rem; color: #64748b;">/month</span>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 2rem;">Perfect for small auto businesses getting started
+                    </p>
+                    <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 2rem;">
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> 50 invoices/month
+                        </li>
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Basic inventory
+                        </li>
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Email support
+                        </li>
+                        <li style="padding: 0.8rem 0; display: flex; align-items: center;">
+                            <i class="fas fa-times" style="color: #ef4444; margin-right: 0.8rem;"></i> Auto parts
+                            catalog
+                        </li>
+                    </ul>
+                    <a href="app.paperbill.in"
+                        style="width: 100%; background-color: #e2e8f0; color: #1e293b; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s;">Get
+                        Started</a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div
+                    style="border: 2px solid #2563eb; border-radius: 12px; padding: 2rem; transition: all 0.3s; text-align: center; position: relative; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05); animation: fadeInUp 1s ease-out 0.2s both;">
+                    <div
+                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: #2563eb; color: white; padding: 0.3rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
+                        BEST FOR AUTO SHOPS</div>
+                    <h3 style="margin-top: 1.5rem; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+                        Professional</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; color: #2563eb;">
+                        ₹999<span style="font-size: 1rem; color: #64748b;">/month</span>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 2rem;">Ideal for growing automobile businesses</p>
+                    <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 2rem;">
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> 500
+                            invoices/month
+                        </li>
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Advanced
+                            inventory
+                        </li>
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Auto parts
+                            catalog
+                        </li>
+                        <li style="padding: 0.8rem 0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Priority support
+                        </li>
+                    </ul>
+                    <a href="app.paperbill.in"
+                        style="width: 100%; background-color: #2563eb; color: white; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s;">Start
+                        14-Day Trial</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div
+                    style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; transition: all 0.3s; text-align: center; animation: fadeInUp 1s ease-out 0.4s both;">
+                    <h3 style="margin-top: 0; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Enterprise</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; color: #2563eb;">
+                        ₹1999<span style="font-size: 1rem; color: #64748b;">/month</span>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 2rem;">For large auto businesses with multiple locations
+                    </p>
+                    <ul style="list-style: none; padding: 0; text-align: left; margin-bottom: 2rem;">
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Unlimited
+                            invoices
+                        </li>
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Multi-location
+                            support
+                        </li>
+                        <li
+                            style="padding: 0.8rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> Dedicated account
+                            manager
+                        </li>
+                        <li style="padding: 0.8rem 0; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: #10b981; margin-right: 0.8rem;"></i> API access
+                        </li>
+                    </ul>
+                    <a href="app.paperbill.in"
+                        style="width: 100%; background-color: #2563eb; color: white; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 600; display: inline-block; text-align: center; transition: all 0.3s;">Contact
+                        Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" style="padding: 5rem 2rem; background-color: #f8fafc;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 1s ease-out;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">What Our <span
+                        style="color: #2563eb;">Customers Say</span></h2>
+                <p style="font-size: 1.1rem; color: #64748b; max-width: 700px; margin: 0 auto;">Don't just take our word
+                    for it - hear from some of our automobile business customers</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Testimonial 1 -->
+                <div
+                    style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); animation: fadeInUp 1s ease-out;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background-color: #dbeafe; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #2563eb;">
+                            AK</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.1rem;">Amit Kumar</div>
+                            <div style="color: #64748b; font-size: 0.9rem;">Owner, City Auto Parts</div>
+                        </div>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"PaperBill has transformed our
+                        parts business. We can now track inventory across 3 locations in real-time and our billing
+                        process is 3x faster."</p>
+                    <div style="color: #f59e0b;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); animation: fadeInUp 1s ease-out 0.2s both;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background-color: #dcfce7; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #10b981;">
+                            RS</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.1rem;">Rajesh Sharma</div>
+                            <div style="color: #64748b; font-size: 0.9rem;">Manager, Speedway Services</div>
+                        </div>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"The service job tracking
+                        feature alone has saved us 10 hours per week in administrative work. Our mechanics love the
+                        simple interface."</p>
+                    <div style="color: #f59e0b;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); animation: fadeInUp 1s ease-out 0.4s both;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div
+                            style="width: 60px; height: 60px; border-radius: 50%; background-color: #fef3c7; display: flex; justify-content: center; align-items: center; margin-right: 1rem; font-weight: bold; color: #d97706;">
+                            PM</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.1rem;">Priya Mehta</div>
+                            <div style="color: #64748b; font-size: 0.9rem;">CEO, AutoStyle Accessories</div>
+                        </div>
+                    </div>
+                    <p style="color: #64748b; margin-bottom: 1.5rem; font-style: italic;">"Our customers love the
+                        professional invoices with vehicle details. PaperBill helped us go paperless and improved our
+                        brand image."</p>
+                    <div style="color: #f59e0b;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+        style="padding: 5rem 2rem; background: linear-gradient(135deg, #2563eb, #1e40af); color: white; text-align: center; position: relative; overflow: hidden;">
+        <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2; animation: fadeInUp 1s ease-out;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Transform Your Auto
+                Business?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Join thousands of automobile businesses
+                using PaperBill to streamline operations and boost sales.</p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="app.paperbill.in"
+                    style="background-color: white; color: #2563eb; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                    <i class="fas fa-rocket"></i> Start Free Trial
+                </a>
+                <a href="#demo"
+                    style="background-color: transparent; color: white; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid white; transition: all 0.3s;">
+                    <i class="fas fa-play-circle"></i> Watch Demo
+                </a>
+            </div>
+        </div>
+        <div
+            style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); z-index: 1;">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #1e293b; color: white; padding: 4rem 2rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+                        <div
+                            style="width: 40px; height: 40px; background-color: #2563eb; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                            BILL
+                        </div>
+                        <span style="font-weight: 700; font-size: 1.5rem; color: white;">PaperBill</span>
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1.5rem;">The complete billing solution for automobile
+                        businesses.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background-color: #334155; color: white; display: flex; justify-content: center; align-items: center; text-decoration: none;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Product</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Features</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Pricing</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Industries</a>
+                        </li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Updates</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Company</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Careers</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Blog</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Support</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Help Center</a>
+                        </li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Live Chat</a>
+                        </li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">API Docs</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Community</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; color: white;">Contact</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-map-marker-alt"
+                                style="color: #94a3b8; margin-right: 0.8rem; width: 20px;"></i>
+                            <span style="color: #94a3b8;">123 Business Park, Bangalore, India</span>
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-phone-alt" style="color: #94a3b8; margin-right: 0.8rem; width: 20px;"></i>
+                            <span style="color: #94a3b8;">+91 98765 43210</span>
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <i class="fas fa-envelope" style="color: #94a3b8; margin-right: 0.8rem; width: 20px;"></i>
+                            <span style="color: #94a3b8;">support@paperbill.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="border-top: 1px solid #334155; padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                <div style="color: #94a3b8; margin-bottom: 1rem;">© 2023 PaperBill. All rights reserved.</div>
+                <div style="display: flex; gap: 1.5rem; margin-bottom: 1rem;">
+                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Privacy
+                        Policy</a>
+                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Terms of
+                        Service</a>
+                    <a href="#" style="color: #94a3b8; text-decoration: none; transition: color 0.3s;">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple hover effects
+        document.querySelectorAll('a, button').forEach(element => {
+            element.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-2px)';
+            });
+            element.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
+
 </html>
