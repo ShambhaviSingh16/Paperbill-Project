@@ -42,13 +42,14 @@
             padding: 0 15px;
         }
 
-        /* Header Styles */
+        /* Enhanced Navbar Styles */
         header {
             background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            padding: 0 20px;
         }
 
         .header-container {
@@ -56,69 +57,151 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
 
         .logo img {
-            height: 40px;
-            margin-right: 10px;
+            height: 45px;
+            margin-right: 12px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .logo h1 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
             color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .logo:hover h1 {
+            color: var(--primary-light);
         }
 
         .logo span {
             color: var(--gray);
+            font-weight: 400;
         }
 
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
 
         nav ul li {
             margin-left: 25px;
+            position: relative;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--black);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
         }
 
         nav ul li a:hover {
             color: var(--primary-color);
         }
 
+        nav ul li a i {
+            margin-left: 5px;
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        nav ul li:hover a i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        .dropdown-menu li a {
+            padding: 8px 0;
+            color: var(--gray);
+            font-weight: 400;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-menu li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             cursor: pointer;
             border: none;
             font-size: 16px;
+            gap: 8px;
         }
 
         .btn-primary {
             background: var(--primary-gradient);
             color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 31, 90, 0.2);
         }
 
         .btn-primary:hover {
             background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 31, 90, 0.3);
+            box-shadow: 0 7px 20px rgba(0, 31, 90, 0.3);
         }
 
         .btn-outline {
@@ -144,7 +227,7 @@
         /* Hero Section */
         .hero {
             background: var(--light-gray);
-            padding: 100px 0 80px;
+            padding: 120px 0 100px;
             position: relative;
             overflow: hidden;
         }
@@ -156,11 +239,12 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: url('https://via.placeholder.com/800x600/f8f9fa/6c757d?text=PaperBill+Interface') no-repeat;
-            background-size: contain;
-            background-position: right center;
+            background: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') no-repeat;
+            background-size: cover;
+            background-position: center;
             z-index: 1;
-            opacity: 0.9;
+            border-radius: 20px 0 0 20px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
         }
 
         .hero-content {
@@ -217,13 +301,25 @@
         .invoice-preview {
             background: var(--white);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             margin-top: 40px;
-            border: 1px solid var(--medium-gray);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.8s ease-out 0.8s forwards;
             opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .invoice-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-gradient);
         }
 
         .invoice-header {
@@ -251,17 +347,18 @@
             font-weight: 700;
             text-align: right;
             color: var(--primary-color);
+            margin-top: 15px;
         }
 
         /* Business Efficiency Section */
         .efficiency-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-header h2 {
@@ -283,14 +380,14 @@
         .efficiency-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 60px;
         }
 
         .efficiency-image {
             flex: 1;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             animation: fadeInLeft 0.8s ease-out;
         }
 
@@ -298,6 +395,11 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s;
+        }
+
+        .efficiency-image:hover img {
+            transform: scale(1.03);
         }
 
         .efficiency-text {
@@ -308,34 +410,36 @@
             font-size: 28px;
             margin-bottom: 20px;
             color: var(--primary-dark);
+            line-height: 1.3;
         }
 
         .efficiency-text p {
             color: var(--gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.8;
         }
 
         .efficiency-list {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .efficiency-list li {
             margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
         }
 
         .efficiency-list li i {
             color: var(--success-color);
             margin-top: 4px;
+            font-size: 18px;
         }
 
         /* Value Section */
         .value-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--light-gray);
         }
 
@@ -348,22 +452,31 @@
 
         .value-card {
             background: var(--white);
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
             text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .value-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0, 31, 90, 0.1);
         }
 
         .value-icon {
-            font-size: 50px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            width: 70px;
+            height: 70px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 28px;
         }
 
         .value-card h3 {
@@ -374,35 +487,43 @@
 
         .value-card p {
             color: var(--gray);
+            line-height: 1.7;
         }
 
         /* Top Features Section */
         .features-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
         }
 
         .features-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
             gap: 10px;
         }
 
         .tab-btn {
-            padding: 12px 25px;
+            padding: 12px 28px;
             background: var(--light-gray);
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            color: var(--gray);
         }
 
         .tab-btn.active {
             background: var(--primary-gradient);
             color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 31, 90, 0.2);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(0, 31, 90, 0.05);
+            color: var(--primary-color);
         }
 
         .tab-content {
@@ -416,41 +537,51 @@
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
         .feature-item {
             background: var(--light-gray);
-            padding: 30px;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            padding: 35px 30px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
         }
 
         .feature-item i {
-            font-size: 30px;
+            font-size: 40px;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover i {
+            transform: scale(1.1);
         }
 
         .feature-item h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 20px;
+            margin-bottom: 15px;
             color: var(--primary-dark);
         }
 
         .feature-item p {
             color: var(--gray);
-            font-size: 14px;
+            font-size: 15px;
+            line-height: 1.7;
         }
 
         /* FAQ Section */
         .faq-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--light-gray);
         }
 
@@ -461,19 +592,21 @@
 
         .faq-item {
             margin-bottom: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             background: var(--white);
             transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 31, 90, 0.1);
         }
 
         .faq-question {
-            padding: 20px;
+            padding: 20px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -485,7 +618,7 @@
         }
 
         .faq-question:hover {
-            background: rgba(0, 31, 90, 0.05);
+            background: rgba(0, 31, 90, 0.03);
         }
 
         .faq-question i {
@@ -498,22 +631,22 @@
         }
 
         .faq-answer {
-            padding: 0 20px;
+            padding: 0 25px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            transition: all 0.3s ease-out;
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
+            padding: 0 25px 25px;
             max-height: 500px;
         }
 
         .faq-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .faq-header h2 {
@@ -526,11 +659,12 @@
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
+            font-size: 18px;
         }
 
         /* Rating Section */
         .rating-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
             text-align: center;
         }
@@ -538,32 +672,42 @@
         .rating-container {
             max-width: 600px;
             margin: 0 auto;
+            background: var(--light-gray);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .rating-stars {
-            font-size: 30px;
+            font-size: 36px;
             color: var(--rating-color);
-            margin: 20px 0;
+            margin: 25px 0;
             cursor: pointer;
         }
 
         .rating-stars i {
-            margin: 0 5px;
-            transition: transform 0.2s;
+            margin: 0 8px;
+            transition: all 0.2s;
         }
 
         .rating-stars i:hover {
+            transform: scale(1.3);
+        }
+
+        .rating-stars i.active {
             transform: scale(1.2);
+            color: #ffc107;
         }
 
         .rating-text {
             color: var(--gray);
             margin-bottom: 30px;
+            font-size: 16px;
         }
 
         /* CTA Section */
         .cta {
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
             background: var(--primary-gradient);
             color: var(--white);
@@ -578,8 +722,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://via.placeholder.com/1200x400/001F5A/788bb3?text=PaperBill+Background') no-repeat;
+            background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') no-repeat;
             background-size: cover;
+            background-position: center;
             opacity: 0.1;
             z-index: 1;
         }
@@ -592,7 +737,7 @@
         }
 
         .cta h2 {
-            font-size: 36px;
+            font-size: 42px;
             margin-bottom: 20px;
             animation: fadeInUp 0.8s ease-out;
         }
@@ -609,7 +754,7 @@
         .cta-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             animation: fadeInUp 0.8s ease-out 0.4s forwards;
             opacity: 0;
         }
@@ -618,21 +763,21 @@
         footer {
             background: var(--primary-dark);
             color: var(--white);
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-col h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 20px;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         .footer-col h4::after {
@@ -640,7 +785,7 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 40px;
+            width: 50px;
             height: 2px;
             background: var(--white);
         }
@@ -650,22 +795,31 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-col ul li a {
             color: var(--medium-gray);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .footer-col ul li a:hover {
             color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-col ul li a i {
+            font-size: 12px;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
+            margin-top: 20px;
         }
 
         .social-links a {
@@ -677,16 +831,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--primary-color);
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--medium-gray);
             font-size: 14px;
@@ -736,10 +891,16 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero::before {
+                width: 45%;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero::before {
                 width: 40%;
-                opacity: 0.5;
+                opacity: 0.7;
             }
 
             .efficiency-content {
@@ -748,27 +909,68 @@
 
             .efficiency-image {
                 width: 100%;
+                max-width: 600px;
+                margin: 0 auto 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
                 padding: 15px 0;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                z-index: 999;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
             nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             nav ul li {
-                margin: 5px 10px;
+                margin: 0 0 15px 0;
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                padding: 10px 0 0 15px;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+            }
+
+            nav ul li:hover .dropdown-menu {
+                transform: none;
+                display: block;
             }
 
             .hero {
-                padding: 80px 0 60px;
+                padding: 100px 0 60px;
                 text-align: center;
             }
 
@@ -796,6 +998,19 @@
             .section-header h2 {
                 font-size: 30px;
             }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .rating-container {
+                padding: 30px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -807,32 +1022,65 @@
                 font-size: 28px;
             }
 
-            .cta h2 {
-                font-size: 30px;
-            }
-
-            .cta-buttons {
+            .features-tabs {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-col {
+                text-align: center;
+            }
+
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Enhanced Navbar -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/40x40/001F5A/FFFFFF?text=PB" alt="PaperBill Logo">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/0jQ7Z5T/paperbill-logo.png" alt="PaperBill Logo">
                 <h1>Paper<span>Bill</span></h1>
-            </div>
-            <nav>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
                 <ul>
-                    <li><a href="#features">Features</a></li>
+                    <li>
+                        <a href="#features">Features <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#features">Billing</a></li>
+                            <li><a href="#features">Inventory</a></li>
+                            <li><a href="#features">Reports</a></li>
+                            <li><a href="#features">CRM</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#efficiency">Efficiency</a></li>
                     <li><a href="#value">Value</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#" class="btn btn-outline">Login</a></li>
+                    <li><a href="#" class="btn btn-primary">Try Free</a></li>
                 </ul>
             </nav>
         </div>
@@ -845,8 +1093,12 @@
                 <h1>Solution for Auto Businesses</h1>
                 <p>Manage your automobile parts, services, inventory and billing all in one place with PaperBill's specialized solution.</p>
                 <div class="hero-buttons">
-                    <a href="#demo" class="btn btn-primary">Watch Demo</a>
-                    <a href="#" class="btn btn-outline">Try for Free</a>
+                    <a href="#demo" class="btn btn-primary">
+                        <i class="fas fa-play-circle"></i> Watch Demo
+                    </a>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas fa-rocket"></i> Try for Free
+                    </a>
                 </div>
                 <div class="trust-badge">
                     <span>Trusted by 500+ Auto Businesses</span>
@@ -875,7 +1127,7 @@
             </div>
             <div class="efficiency-content">
                 <div class="efficiency-image">
-                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Auto+Shop+Dashboard" alt="Auto Shop Dashboard">
+                    <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Auto Shop Dashboard">
                 </div>
                 <div class="efficiency-text">
                     <h3>Transform Your Auto Business Operations</h3>
@@ -886,7 +1138,9 @@
                         <li><i class="fas fa-check-circle"></i> Automate invoicing and payment tracking</li>
                         <li><i class="fas fa-check-circle"></i> Generate insightful business reports with one click</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Learn More</a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
                 </div>
             </div>
         </div>
@@ -926,7 +1180,7 @@
     </section>
 
     <!-- Top Features Section -->
-    <section class="features-section">
+    <section class="features-section" id="features">
         <div class="container">
             <div class="section-header">
                 <h2>Top Features Tailored For Automobile Shop Billing</h2>
@@ -1128,7 +1382,9 @@
                     <i class="far fa-star" data-rating="5"></i>
                 </div>
                 <p class="rating-text">Your feedback helps us create better content for automobile businesses like yours.</p>
-                <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
+                <button class="btn btn-primary" id="submit-rating">
+                    <i class="fas fa-paper-plane"></i> Submit Rating
+                </button>
             </div>
         </div>
     </section>
@@ -1139,8 +1395,12 @@
             <h2>Ready to Transform Your Auto Business?</h2>
             <p>Join hundreds of automobile businesses using PaperBill to manage their operations more efficiently.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-light">Start 14-Day Free Trial</a>
-                <a href="#demo" class="btn btn-outline">Watch Demo</a>
+                <a href="#" class="btn btn-light">
+                    <i class="fas fa-play"></i> Start 14-Day Free Trial
+                </a>
+                <a href="#demo" class="btn btn-outline">
+                    <i class="fas fa-video"></i> Watch Demo
+                </a>
             </div>
         </div>
     </section>
@@ -1151,7 +1411,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo">
-                        <img src="https://via.placeholder.com/40x40/FFFFFF/001F5A?text=PB" alt="PaperBill Logo">
+                        <img src="https://i.ibb.co/0jQ7Z5T/paperbill-logo.png" alt="PaperBill Logo">
                         <h1 style="color: var(--white)">Paper<span style="color: var(--medium-gray)">Bill</span></h1>
                     </div>
                     <p style="color: var(--medium-gray); margin-top: 15px;">The complete billing and management solution for automobile businesses.</p>
@@ -1165,28 +1425,28 @@
                 <div class="footer-col">
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Mobile App</a></li>
-                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Features</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mobile App</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Integrations</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">API Docs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> API Docs</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -1197,6 +1457,16 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
         // Tab functionality
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -1248,8 +1518,10 @@
                     if (index < rating) {
                         s.classList.remove('far');
                         s.classList.add('fas');
+                        s.classList.add('active');
                     } else {
                         s.classList.remove('fas');
+                        s.classList.remove('active');
                         s.classList.add('far');
                     }
                 });
@@ -1263,6 +1535,30 @@
             } else {
                 alert('Please select a rating before submitting.');
             }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
         });
     </script>
 </body>
