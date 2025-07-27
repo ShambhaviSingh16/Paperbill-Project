@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaperBill - Billing Software for Automobile Businesses</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-gradient: linear-gradient(90deg, #001F5A, #788bb3);
@@ -333,6 +335,23 @@
             margin-top: 4px;
         }
 
+        .efficiency-content {
+            margin-bottom: 60px;
+            /* Increased from previous value */
+        }
+
+        .efficiency-content.reverse {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 992px) {
+
+            .efficiency-content,
+            .efficiency-content.reverse {
+                flex-direction: column;
+            }
+        }
+
         /* Value Section */
         .value-section {
             padding: 80px 0;
@@ -466,10 +485,12 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             background: var(--white);
             transition: all 0.3s ease;
+            border: 1px solid #eee;
         }
 
         .faq-item:hover {
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
         }
 
         .faq-question {
@@ -559,6 +580,60 @@
         .rating-text {
             color: var(--gray);
             margin-bottom: 30px;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .thank-you-message i {
+            font-size: 50px;
+            color: var(--success-color);
+            margin-bottom: 15px;
+        }
+
+        .thank-you-message h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .thank-you-message p {
+            color: var(--gray);
+        }
+
+        .rating-alert {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 5px;
+            color: #dc3545;
+            animation: fadeIn 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .rating-alert i {
+            font-size: 18px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* CTA Section */
@@ -698,6 +773,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -709,6 +785,7 @@
                 opacity: 0;
                 transform: translateX(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -720,6 +797,7 @@
                 opacity: 0;
                 transform: translateX(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -730,6 +808,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -818,32 +897,17 @@
         }
     </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/40x40/001F5A/FFFFFF?text=PB" alt="PaperBill Logo">
-                <h1>Paper<span>Bill</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#efficiency">Efficiency</a></li>
-                    <li><a href="#value">Value</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#" class="btn btn-outline">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Solution for Auto Businesses</h1>
-                <p>Manage your automobile parts, services, inventory and billing all in one place with PaperBill's specialized solution.</p>
+                <p>Manage your automobile parts, services, inventory and billing all in one place with PaperBill's
+                    specialized solution.</p>
                 <div class="hero-buttons">
                     <a href="#demo" class="btn btn-primary">Watch Demo</a>
                     <a href="#" class="btn btn-outline">Try for Free</a>
@@ -859,27 +923,92 @@
         </div>
     </section>
 
+
     <!-- Business Efficiency Section -->
     <section class="efficiency-section" id="efficiency">
         <div class="container">
             <div class="section-header">
                 <h2>Maximize Your Auto Shop Business Efficiency with PaperBill</h2>
-                <p>Streamline your operations and boost productivity with our specialized automobile shop billing software</p>
+                <p>Streamline your operations and boost productivity with our specialized automobile shop billing
+                    software</p>
             </div>
+
+            <!-- Card 1 -->
             <div class="efficiency-content">
                 <div class="efficiency-image">
-                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Auto+Shop+Dashboard" alt="Auto Shop Dashboard">
+                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Auto+Shop+Dashboard"
+                        alt="Auto Shop Dashboard">
                 </div>
                 <div class="efficiency-text">
                     <h3>Transform Your Auto Business Operations</h3>
-                    <p>PaperBill is designed specifically for automobile shops to help you manage every aspect of your business more efficiently. From inventory tracking to customer management, our software provides the tools you need to succeed.</p>
+                    <p>PaperBill is designed specifically for automobile shops to help you manage every aspect of your
+                        business more efficiently. From inventory tracking to customer management, our software provides
+                        the tools you need to succeed.</p>
                     <ul class="efficiency-list">
                         <li><i class="fas fa-check-circle"></i> Reduce manual data entry and paperwork by up to 80%</li>
-                        <li><i class="fas fa-check-circle"></i> Track inventory levels in real-time to prevent stockouts</li>
+                        <li><i class="fas fa-check-circle"></i> Track inventory levels in real-time to prevent stockouts
+                        </li>
                         <li><i class="fas fa-check-circle"></i> Automate invoicing and payment tracking</li>
                         <li><i class="fas fa-check-circle"></i> Generate insightful business reports with one click</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="efficiency-content">
+                <div class="efficiency-text">
+                    <h3>Streamline Your Parts Management</h3>
+                    <p>Take control of your auto parts inventory with our specialized tracking system designed
+                        specifically for automobile businesses.</p>
+                    <ul class="efficiency-list">
+                        <li><i class="fas fa-check-circle"></i> Barcode scanning for quick parts identification</li>
+                        <li><i class="fas fa-check-circle"></i> Automatic reordering when stock reaches minimum levels
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Track parts by vehicle make and model compatibility</li>
+                        <li><i class="fas fa-check-circle"></i> Bulk import/export for easy inventory setup</li>
+                    </ul>
+                </div>
+                <div class="efficiency-image">
+                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Auto+Parts+Management"
+                        alt="Auto Parts Management">
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="efficiency-content">
+                <div class="efficiency-image">
+                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Customer+Management"
+                        alt="Customer Management">
+                </div>
+                <div class="efficiency-text">
+                    <h3>Enhance Customer Relationships</h3>
+                    <p>Build lasting relationships with your customers through better service tracking and communication
+                        tools.</p>
+                    <ul class="efficiency-list">
+                        <li><i class="fas fa-check-circle"></i> Complete vehicle service history tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Automated service reminders and follow-ups</li>
+                        <li><i class="fas fa-check-circle"></i> Customer loyalty program integration</li>
+                        <li><i class="fas fa-check-circle"></i> Marketing campaign management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="efficiency-content">
+                <div class="efficiency-text">
+                    <h3>Optimize Financial Management</h3>
+                    <p>Gain complete control over your shop's finances with our comprehensive accounting and reporting
+                        tools.</p>
+                    <ul class="efficiency-list">
+                        <li><i class="fas fa-check-circle"></i> Automated expense tracking and categorization</li>
+                        <li><i class="fas fa-check-circle"></i> Profit and loss statements with one click</li>
+                        <li><i class="fas fa-check-circle"></i> Tax calculation and GST compliance tools</li>
+                        <li><i class="fas fa-check-circle"></i> Cash flow forecasting and analysis</li>
+                    </ul>
+                </div>
+                <div class="efficiency-image">
+                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Financial+Management"
+                        alt="Financial Management">
                 </div>
             </div>
         </div>
@@ -898,21 +1027,24 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Boost Sales</h3>
-                    <p>Identify your best-selling items and optimize your inventory to increase revenue and reduce dead stock.</p>
+                    <p>Identify your best-selling items and optimize your inventory to increase revenue and reduce dead
+                        stock.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Save Time</h3>
-                    <p>Automate repetitive tasks and reduce manual work, giving you more time to focus on growing your business.</p>
+                    <p>Automate repetitive tasks and reduce manual work, giving you more time to focus on growing your
+                        business.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-rupee-sign"></i>
                     </div>
                     <h3>Reduce Costs</h3>
-                    <p>Minimize errors and inefficiencies that cost your business money with our accurate tracking systems.</p>
+                    <p>Minimize errors and inefficiencies that cost your business money with our accurate tracking
+                        systems.</p>
                 </div>
             </div>
         </div>
@@ -1041,64 +1173,81 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Is PaperBill suitable for my auto parts store?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, PaperBill is specifically designed for automobile businesses including auto parts stores, service centers, and dealerships. Our software includes specialized features like parts inventory management, vehicle-specific invoicing, and service job tracking that are tailored to your industry.</p>
+                        <p>Yes, PaperBill is specifically designed for automobile businesses including auto parts
+                            stores, service centers, and dealerships. Our software includes specialized features like
+                            parts inventory management, vehicle-specific invoicing, and service job tracking that are
+                            tailored to your industry.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>How does the inventory management work?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>PaperBill's inventory system tracks all your parts and accessories with real-time updates. You can set minimum stock levels, track items by barcode or batch number, manage suppliers, and receive automatic alerts when stock is low. The system automatically updates inventory levels when you create invoices or receive new stock.</p>
+                        <p>PaperBill's inventory system tracks all your parts and accessories with real-time updates.
+                            You can set minimum stock levels, track items by barcode or batch number, manage suppliers,
+                            and receive automatic alerts when stock is low. The system automatically updates inventory
+                            levels when you create invoices or receive new stock.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Can I access PaperBill on my mobile device?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely! PaperBill is fully responsive and works on all devices including smartphones and tablets. We also offer dedicated mobile apps for iOS and Android that allow you to create invoices, check inventory, and manage your business from anywhere.</p>
+                        <p>Absolutely! PaperBill is fully responsive and works on all devices including smartphones and
+                            tablets. We also offer dedicated mobile apps for iOS and Android that allow you to create
+                            invoices, check inventory, and manage your business from anywhere.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>What kind of support do you offer?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We provide comprehensive support including email, phone, and live chat during business hours. All customers also get access to our detailed knowledge base, video tutorials, and onboarding sessions to help you get started. Enterprise customers receive a dedicated account manager for personalized support.</p>
+                        <p>We provide comprehensive support including email, phone, and live chat during business hours.
+                            All customers also get access to our detailed knowledge base, video tutorials, and
+                            onboarding sessions to help you get started. Enterprise customers receive a dedicated
+                            account manager for personalized support.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>How secure is my business data?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Data security is our top priority. PaperBill uses bank-grade 256-bit encryption for all data transmission and storage. We perform regular backups and offer two-factor authentication for added security. Your data is stored on secure servers with 99.9% uptime guarantee.</p>
+                        <p>Data security is our top priority. PaperBill uses bank-grade 256-bit encryption for all data
+                            transmission and storage. We perform regular backups and offer two-factor authentication for
+                            added security. Your data is stored on secure servers with 99.9% uptime guarantee.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Can I customize invoices with my shop's branding?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, PaperBill allows full customization of your invoices. You can add your logo, change colors to match your brand, modify fields to include specific information your customers need, and even create multiple templates for different types of transactions.</p>
+                        <p>Yes, PaperBill allows full customization of your invoices. You can add your logo, change
+                            colors to match your brand, modify fields to include specific information your customers
+                            need, and even create multiple templates for different types of transactions.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Does PaperBill integrate with accounting software?</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>PaperBill integrates seamlessly with popular accounting software including Tally, QuickBooks, and others. You can export your financial data with a single click, eliminating the need for manual data entry and reducing errors in your bookkeeping.</p>
+                        <p>PaperBill integrates seamlessly with popular accounting software including Tally, QuickBooks,
+                            and others. You can export your financial data with a single click, eliminating the need for
+                            manual data entry and reducing errors in your bookkeeping.</p>
                     </div>
                 </div>
             </div>
@@ -1120,11 +1269,20 @@
                     <i class="far fa-star" data-rating="4"></i>
                     <i class="far fa-star" data-rating="5"></i>
                 </div>
-                <p class="rating-text">Your feedback helps us create better content for automobile businesses like yours.</p>
+                <p class="rating-text">Your feedback helps us create better content for automobile businesses like
+                    yours.</p>
                 <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
+
+                <!-- Thank you message (hidden by default) -->
+                <div class="thank-you-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You for Your Feedback!</h3>
+                    <p>We appreciate you taking the time to rate our content.</p>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- CTA Section -->
     <section class="cta">
@@ -1138,7 +1296,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer 
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1147,7 +1305,8 @@
                         <img src="https://via.placeholder.com/40x40/FFFFFF/001F5A?text=PB" alt="PaperBill Logo">
                         <h1 style="color: var(--white)">Paper<span style="color: var(--medium-gray)">Bill</span></h1>
                     </div>
-                    <p style="color: var(--medium-gray); margin-top: 15px;">The complete billing and management solution for automobile businesses.</p>
+                    <p style="color: var(--medium-gray); margin-top: 15px;">The complete billing and management solution
+                        for automobile businesses.</p>
                     <div class="social-links" style="margin-top: 20px;">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1187,7 +1346,7 @@
                 <p>&copy; 2023 PaperBill. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <script>
         // Tab functionality
@@ -1199,7 +1358,7 @@
                 // Remove active class from all buttons and contents
                 tabBtns.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-                
+
                 // Add active class to clicked button and corresponding content
                 btn.classList.add('active');
                 const tabId = btn.getAttribute('data-tab');
@@ -1209,33 +1368,50 @@
 
         // FAQ accordion functionality
         const faqItems = document.querySelectorAll('.faq-item');
-        
+
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            
+
             question.addEventListener('click', () => {
                 // Close all other items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
+                        const icon = otherItem.querySelector('.faq-question i');
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
                     }
                 });
-                
+
                 // Toggle current item
                 item.classList.toggle('active');
+                const icon = question.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
             });
         });
 
-        // Star rating functionality
+        // Updated rating functionality with single error message
         const stars = document.querySelectorAll('.rating-stars i');
         const submitBtn = document.getElementById('submit-rating');
+        const thankYouMessage = document.querySelector('.thank-you-message');
         let selectedRating = 0;
+        let errorMessage = null;
+        let attemptCount = 0;
+        const baseTimeout = 2000; // 2 seconds base timeout
+        const maxTimeout = 5000; // 5 seconds maximum timeout
 
         stars.forEach(star => {
             star.addEventListener('click', () => {
                 const rating = parseInt(star.getAttribute('data-rating'));
                 selectedRating = rating;
-                
+                attemptCount = 0; // Reset attempt count when user selects a rating
+
                 // Update stars display
                 stars.forEach((s, index) => {
                     if (index < rating) {
@@ -1246,17 +1422,59 @@
                         s.classList.add('far');
                     }
                 });
+
+                // Remove any existing error message
+                if (errorMessage) {
+                    errorMessage.remove();
+                    errorMessage = null;
+                }
             });
         });
 
         submitBtn.addEventListener('click', () => {
             if (selectedRating > 0) {
-                alert(`Thank you for your ${selectedRating}-star rating!`);
-                // In a real implementation, you would send this to your server
+                // Hide rating elements
+                document.querySelector('.rating-stars').style.display = 'none';
+                document.querySelector('.rating-text').style.display = 'none';
+                submitBtn.style.display = 'none';
+
+                // Show thank you message
+                thankYouMessage.style.display = 'block';
+
+                // Reset attempt count on successful submission
+                attemptCount = 0;
+
+                // In a real implementation, you would send the rating to your server here
+                console.log(`User rated: ${selectedRating} stars`);
             } else {
-                alert('Please select a rating before submitting.');
+                // Remove previous error message if exists
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+
+                // Calculate timeout duration (increases with each attempt)
+                const timeoutDuration = Math.min(baseTimeout + (attemptCount * 1000), maxTimeout);
+                attemptCount++;
+
+                // Create new error message
+                errorMessage = document.createElement('div');
+                errorMessage.className = 'rating-alert';
+                errorMessage.innerHTML = `
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Please select a rating before submitting</span>
+            `;
+                document.querySelector('.rating-container').appendChild(errorMessage);
+
+                // Remove after calculated timeout duration
+                setTimeout(() => {
+                    if (errorMessage) {
+                        errorMessage.remove();
+                        errorMessage = null;
+                    }
+                }, timeoutDuration);
             }
-        });
+        }); 
     </script>
 </body>
+
 </html>
