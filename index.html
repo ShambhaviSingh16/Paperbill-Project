@@ -465,6 +465,11 @@
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         .faq-question {
@@ -475,7 +480,8 @@
             cursor: pointer;
             font-weight: 600;
             color: var(--primary-dark);
-            transition: background 0.3s;
+            transition: all 0.3s;
+            background: var(--white);
         }
 
         .faq-question:hover {
@@ -484,6 +490,7 @@
 
         .faq-question i {
             transition: transform 0.3s;
+            color: var(--primary-color);
         }
 
         .faq-item.active .faq-question i {
@@ -495,11 +502,30 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--gray);
+            line-height: 1.6;
         }
 
         .faq-item.active .faq-answer {
             padding: 0 20px 20px;
             max-height: 500px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .faq-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Rating Section */
@@ -1014,7 +1040,7 @@
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
         <div class="container">
-            <div class="section-header">
+            <div class="faq-header">
                 <h2>Frequently Asked Questions</h2>
                 <p>Find answers to common questions about PaperBill for automobile businesses</p>
             </div>
@@ -1062,6 +1088,24 @@
                     </div>
                     <div class="faq-answer">
                         <p>Data security is our top priority. PaperBill uses bank-grade 256-bit encryption for all data transmission and storage. We perform regular backups and offer two-factor authentication for added security. Your data is stored on secure servers with 99.9% uptime guarantee.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I customize invoices with my shop's branding?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, PaperBill allows full customization of your invoices. You can add your logo, change colors to match your brand, modify fields to include specific information your customers need, and even create multiple templates for different types of transactions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does PaperBill integrate with accounting software?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>PaperBill integrates seamlessly with popular accounting software including Tally, QuickBooks, and others. You can export your financial data with a single click, eliminating the need for manual data entry and reducing errors in your bookkeeping.</p>
                     </div>
                 </div>
             </div>
