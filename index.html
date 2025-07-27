@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PaperBill - Billing Software for Automobile Shops</title>
+    <title>PaperBill - Billing Software for Automobile Businesses</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-gradient: linear-gradient(90deg, #001F5A, #788bb3);
@@ -16,19 +17,21 @@
             --gray: #6c757d;
             --light-gray: #f8f9fa;
             --medium-gray: #adb5bd;
+            --success-color: #28a745;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
             line-height: 1.6;
             color: var(--black);
             background-color: var(--white);
+            overflow-x: hidden;
         }
 
         .container {
@@ -96,11 +99,14 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 5px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
         }
 
         .btn-primary {
@@ -117,6 +123,7 @@
         .btn-outline {
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
+            background: transparent;
         }
 
         .btn-outline:hover {
@@ -124,87 +131,267 @@
             color: var(--white);
         }
 
+        .btn-light {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
         /* Hero Section */
         .hero {
             background: var(--light-gray);
-            padding: 80px 0;
-            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h2 {
-            font-size: 42px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://via.placeholder.com/800x600/f8f9fa/6c757d?text=PaperBill+Interface') no-repeat;
+            background-size: contain;
+            background-position: right center;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
             margin-bottom: 20px;
             color: var(--primary-dark);
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero p {
             font-size: 18px;
             color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 30px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
         }
 
         .hero-buttons {
             display: flex;
-            justify-content: center;
             gap: 15px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
         }
 
-        .hero-image {
-            margin-top: 50px;
-            max-width: 100%;
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        .trust-badge .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .trust-badge .stars {
+            color: #ffc107;
+        }
+
+        /* Invoice Preview Section */
+        .invoice-preview {
+            background: var(--white);
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin-top: 40px;
+            border: 1px solid var(--medium-gray);
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .invoice-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .invoice-number {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .invoice-amount {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: right;
+            color: var(--primary-color);
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .demo-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .demo-video {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        .demo-video img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .demo-features {
+            flex: 1;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+            animation: fadeInRight 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.2s; }
+        .feature-item:nth-child(2) { animation-delay: 0.4s; }
+        .feature-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+
+        .feature-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .feature-text p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .demo-button {
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+            opacity: 0;
         }
 
         /* Features Section */
         .features {
             padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h3 {
-            font-size: 32px;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
+            background: var(--light-gray);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
         .feature-card {
             background: var(--white);
             border-radius: 10px;
-            padding: 30px;
+            padding: 40px 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
         }
+
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+        .feature-card:nth-child(4) { animation-delay: 0.8s; }
 
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-icon {
+        .feature-card-icon {
             font-size: 40px;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
 
-        .feature-card h4 {
+        .feature-card h3 {
             font-size: 20px;
             margin-bottom: 15px;
             color: var(--primary-dark);
@@ -214,130 +401,10 @@
             color: var(--gray);
         }
 
-        /* How It Works Section */
-        .how-it-works {
-            padding: 80px 0;
-            background: var(--light-gray);
-        }
-
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 30px;
-            position: relative;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-        }
-
-        .step h4 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--primary-dark);
-        }
-
-        .step p {
-            color: var(--gray);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-        }
-
-        .pricing-plans {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .pricing-card {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            width: 300px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary-color);
-            position: relative;
-        }
-
-        .popular-tag {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .pricing-card h4 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--primary-dark);
-        }
-
-        .price {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .price span {
-            font-size: 16px;
-            color: var(--gray);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .pricing-features li {
-            padding: 8px 0;
-            color: var(--gray);
-            border-bottom: 1px solid var(--light-gray);
-        }
-
         /* Testimonials Section */
         .testimonials {
             padding: 80px 0;
-            background: var(--light-gray);
+            background: var(--white);
         }
 
         .testimonial-grid {
@@ -352,12 +419,31 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--light-gray);
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
         }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
 
         .testimonial-text {
             font-style: italic;
             color: var(--gray);
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
         }
 
         .testimonial-author {
@@ -376,6 +462,7 @@
             justify-content: center;
             color: var(--white);
             font-weight: 700;
+            background: var(--primary-gradient);
         }
 
         .author-info h5 {
@@ -390,32 +477,55 @@
 
         /* CTA Section */
         .cta {
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             background: var(--primary-gradient);
             color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
 
-        .cta h3 {
-            font-size: 32px;
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1200x400/001F5A/788bb3?text=PaperBill+Background') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 36px;
             margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .cta p {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto 30px;
             font-size: 18px;
             opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
         }
 
-        .cta .btn {
-            background: var(--white);
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .cta .btn:hover {
-            background: rgba(255, 255, 255, 0.9);
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
         }
 
         /* Footer */
@@ -496,7 +606,56 @@
             font-size: 14px;
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero::before {
+                width: 40%;
+                opacity: 0.5;
+            }
+
+            .demo-content {
+                flex-direction: column;
+            }
+
+            .demo-video {
+                width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -513,8 +672,21 @@
                 margin: 5px 10px;
             }
 
-            .hero h2 {
-                font-size: 32px;
+            .hero {
+                padding: 80px 0 60px;
+                text-align: center;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
             }
 
             .hero-buttons {
@@ -522,13 +694,31 @@
                 align-items: center;
             }
 
-            .steps {
-                flex-direction: column;
-                align-items: center;
+            .invoice-preview {
+                margin: 40px auto 0;
             }
 
-            .step {
-                max-width: 350px;
+            .section-header h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -544,8 +734,7 @@
             <nav>
                 <ul>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#demo">How It Works</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#" class="btn btn-outline">Login</a></li>
                 </ul>
@@ -556,140 +745,115 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Smart Billing Software for Automobile Shops</h2>
-            <p>Streamline your automobile retail business with PaperBill - the complete solution for inventory management, invoicing, and customer relationship management.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Start Free Trial</a>
-                <a href="#" class="btn btn-outline">Watch Demo</a>
+            <div class="hero-content">
+                <h1>Solution for Auto Businesses</h1>
+                <p>Manage your automobile parts, services, inventory and billing all in one place with PaperBill's specialized solution.</p>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn btn-primary">Watch Demo</a>
+                    <a href="#" class="btn btn-outline">Try for Free</a>
+                </div>
+                <div class="trust-badge">
+                    <span>Trusted by 500+ Auto Businesses</span>
+                    <span class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9/5</span>
+                    </span>
+                </div>
+                <div class="invoice-preview">
+                    <div class="invoice-header">
+                        <div class="invoice-title">Auto Part Invoice</div>
+                        <div class="invoice-number">#PB-2023-001245</div>
+                    </div>
+                    <div class="invoice-amount">₹12,450.00</div>
+                </div>
             </div>
-            <img src="https://via.placeholder.com/900x500/f8f9fa/6c757d?text=PaperBill+Dashboard" alt="PaperBill Dashboard" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>See How PaperBill Works for Automobile Businesses</h2>
+                <p>Watch our 2-minute demo to see how PaperBill can transform your auto business operations.</p>
+            </div>
+            <div class="demo-content">
+                <div class="demo-video">
+                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Demo+Video+Placeholder" alt="PaperBill Demo Video">
+                </div>
+                <div class="demo-features">
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Specialized automobile billing</h4>
+                                <p>Customized invoicing for auto parts and services with all the fields you need.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Parts inventory management</h4>
+                                <p>Track thousands of SKUs with barcode support and low stock alerts.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Service job tracking</h4>
+                                <p>Manage service orders, technician assignments, and job statuses.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="demo-button">
+                        <a href="#" class="btn btn-primary">Watch Full Demo</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-title">
-                <h3>Powerful Features for Your Business</h3>
-                <p>PaperBill comes packed with everything you need to manage your automobile retail shop efficiently</p>
+            <div class="section-header">
+                <h2>Complete Solution for Auto Businesses</h2>
+                <p>PaperBill provides all the tools you need to run your automobile retail or service business efficiently.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
+                    <div class="feature-card-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h4>Professional Invoicing</h4>
-                    <p>Create beautiful, professional invoices with your branding in seconds. Automate recurring invoices and payment reminders.</p>
+                    <h3>Automobile-Specific Invoicing</h3>
+                    <p>Create professional invoices with vehicle details, parts lists, and labor charges tailored for auto businesses.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
+                    <div class="feature-card-icon">
                         <i class="fas fa-boxes"></i>
                     </div>
-                    <h4>Inventory Management</h4>
-                    <p>Track parts and accessories with real-time inventory updates. Get low stock alerts and manage suppliers seamlessly.</p>
+                    <h3>Advanced Inventory Management</h3>
+                    <p>Track parts inventory with barcode support, batch numbers, and supplier management.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="feature-card-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <h4>Business Analytics</h4>
-                    <p>Get detailed reports on sales, expenses, and profits. Identify your best-selling items and seasonal trends.</p>
+                    <h3>Service Job Management</h3>
+                    <p>Schedule jobs, assign technicians, and track service progress from start to finish.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                    <div class="feature-card-icon">
+                        <i class="fas fa-car"></i>
                     </div>
-                    <h4>Customer Management</h4>
-                    <p>Maintain complete customer records with service history. Send personalized offers and build loyalty.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h4>Mobile Friendly</h4>
-                    <p>Access PaperBill from any device. Create invoices on the go from your smartphone or tablet.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h4>Cloud Backup</h4>
-                    <p>Your data is securely stored in the cloud with automatic backups. Access it anytime, anywhere.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h3>How PaperBill Works</h3>
-                <p>Get started with PaperBill in just a few simple steps</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Sign Up</h4>
-                    <p>Create your free account in minutes. No credit card required for the trial period.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Set Up Your Shop</h4>
-                    <p>Add your business details, products, services, and customize your invoice template.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Start Billing</h4>
-                    <p>Create your first invoice, manage inventory, and track payments effortlessly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h3>Simple, Transparent Pricing</h3>
-                <p>Choose the plan that fits your business needs</p>
-            </div>
-            <div class="pricing-plans">
-                <div class="pricing-card">
-                    <h4>Starter</h4>
-                    <div class="price">₹999 <span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li>Up to 50 invoices/month</li>
-                        <li>Basic inventory management</li>
-                        <li>Customer management</li>
-                        <li>Email support</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Get Started</a>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="popular-tag">Most Popular</div>
-                    <h4>Professional</h4>
-                    <div class="price">₹1999 <span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li>Unlimited invoices</li>
-                        <li>Advanced inventory</li>
-                        <li>Business analytics</li>
-                        <li>Priority support</li>
-                        <li>Mobile app access</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Get Started</a>
-                </div>
-                <div class="pricing-card">
-                    <h4>Enterprise</h4>
-                    <div class="price">₹3499 <span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li>Unlimited everything</li>
-                        <li>Multi-shop management</li>
-                        <li>Custom reporting</li>
-                        <li>Dedicated account manager</li>
-                        <li>API access</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Get Started</a>
+                    <h3>Vehicle History Tracking</h3>
+                    <p>Maintain complete service history for each vehicle to provide better customer service.</p>
                 </div>
             </div>
         </div>
@@ -698,14 +862,14 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-title">
-                <h3>What Our Customers Say</h3>
-                <p>Trusted by hundreds of automobile retailers across India</p>
+            <div class="section-header">
+                <h2>Trusted by Auto Businesses Nationwide</h2>
+                <p>Hundreds of automobile retailers and service centers rely on PaperBill every day.</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "PaperBill has transformed how we manage our auto parts store. The inventory tracking alone has saved us thousands in lost sales."
+                        PaperBill has transformed how we manage our auto parts store. The inventory tracking alone has saved us thousands in lost sales and helped us optimize our stock levels.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">RS</div>
@@ -717,7 +881,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "Switching to PaperBill was the best decision for our bike accessories shop. The professional invoices have improved our brand image."
+                        The vehicle history feature is a game-changer for our service center. We can now provide complete service records to our customers, which has significantly improved trust and repeat business.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">PK</div>
@@ -729,7 +893,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "The customer management features help us maintain great relationships with our garage clients. Highly recommended for auto businesses!"
+                        Switching to PaperBill was the best decision for our bike accessories shop. The professional invoices have improved our brand image and made accounting much simpler.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">AM</div>
@@ -745,10 +909,13 @@
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="container">
-            <h3>Ready to Transform Your Business?</h3>
-            <p>Join thousands of automobile retailers who trust PaperBill for their billing and inventory needs.</p>
-            <a href="#" class="btn">Start Your 14-Day Free Trial</a>
+        <div class="cta-content">
+            <h2>Ready to Streamline Your Auto Business?</h2>
+            <p>Join hundreds of automobile businesses using PaperBill to manage their operations more efficiently.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-light">Start 14-Day Free Trial</a>
+                <a href="#demo" class="btn btn-outline">Watch Demo</a>
+            </div>
         </div>
     </section>
 
@@ -761,7 +928,7 @@
                         <img src="https://via.placeholder.com/40x40/FFFFFF/001F5A?text=PB" alt="PaperBill Logo">
                         <h1 style="color: var(--white)">Paper<span style="color: var(--medium-gray)">Bill</span></h1>
                     </div>
-                    <p style="color: var(--medium-gray); margin-top: 15px;">The complete billing solution for automobile retail businesses.</p>
+                    <p style="color: var(--medium-gray); margin-top: 15px;">The complete billing and management solution for automobile businesses.</p>
                     <div class="social-links" style="margin-top: 20px;">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -774,9 +941,17 @@
                     <ul>
                         <li><a href="#">Features</a></li>
                         <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Integrations</a></li>
-                        <li><a href="#">Updates</a></li>
                         <li><a href="#">Mobile App</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">API Docs</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -784,24 +959,13 @@
                     <ul>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
                         <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">API Docs</a></li>
-                        <li><a href="#">Status</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 PaperBill. All rights reserved. | <a href="#" style="color: var(--medium-gray)">Privacy Policy</a> | <a href="#" style="color: var(--medium-gray)">Terms of Service</a></p>
+                <p>&copy; 2023 PaperBill. All rights reserved.</p>
             </div>
         </div>
     </footer>
