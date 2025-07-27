@@ -18,6 +18,7 @@
             --light-gray: #f8f9fa;
             --medium-gray: #adb5bd;
             --success-color: #28a745;
+            --rating-color: #ffc107;
         }
 
         * {
@@ -209,7 +210,7 @@
         }
 
         .trust-badge .stars {
-            color: #ffc107;
+            color: var(--rating-color);
         }
 
         /* Invoice Preview Section */
@@ -252,8 +253,8 @@
             color: var(--primary-color);
         }
 
-        /* Demo Section */
-        .demo-section {
+        /* Business Efficiency Section */
+        .efficiency-section {
             padding: 80px 0;
             background: var(--white);
         }
@@ -279,14 +280,13 @@
             opacity: 0;
         }
 
-        .demo-content {
+        .efficiency-content {
             display: flex;
             align-items: center;
             gap: 50px;
-            margin-top: 30px;
         }
 
-        .demo-video {
+        .efficiency-image {
             flex: 1;
             border-radius: 10px;
             overflow: hidden;
@@ -294,185 +294,245 @@
             animation: fadeInLeft 0.8s ease-out;
         }
 
-        .demo-video img {
+        .efficiency-image img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .demo-features {
+        .efficiency-text {
             flex: 1;
         }
 
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 25px;
-            animation: fadeInRight 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .feature-item:nth-child(1) { animation-delay: 0.2s; }
-        .feature-item:nth-child(2) { animation-delay: 0.4s; }
-        .feature-item:nth-child(3) { animation-delay: 0.6s; }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 12px;
-        }
-
-        .feature-text h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
+        .efficiency-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
             color: var(--primary-dark);
         }
 
-        .feature-text p {
+        .efficiency-text p {
             color: var(--gray);
-            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
-        .demo-button {
-            text-align: center;
-            margin-top: 40px;
-            animation: fadeInUp 0.8s ease-out 0.8s forwards;
-            opacity: 0;
+        .efficiency-list {
+            list-style: none;
+            margin-bottom: 30px;
         }
 
-        /* Features Section */
-        .features {
+        .efficiency-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .efficiency-list li i {
+            color: var(--success-color);
+            margin-top: 4px;
+        }
+
+        /* Value Section */
+        .value-section {
             padding: 80px 0;
             background: var(--light-gray);
         }
 
-        .features-grid {
+        .value-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
 
-        .feature-card {
+        .value-card {
             background: var(--white);
             border-radius: 10px;
             padding: 40px 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
+            text-align: center;
         }
 
-        .feature-card:nth-child(1) { animation-delay: 0.2s; }
-        .feature-card:nth-child(2) { animation-delay: 0.4s; }
-        .feature-card:nth-child(3) { animation-delay: 0.6s; }
-        .feature-card:nth-child(4) { animation-delay: 0.8s; }
-
-        .feature-card:hover {
+        .value-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-card-icon {
-            font-size: 40px;
+        .value-icon {
+            font-size: 50px;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
 
-        .feature-card h3 {
-            font-size: 20px;
+        .value-card h3 {
+            font-size: 22px;
             margin-bottom: 15px;
             color: var(--primary-dark);
         }
 
-        .feature-card p {
+        .value-card p {
             color: var(--gray);
         }
 
-        /* Testimonials Section */
-        .testimonials {
+        /* Top Features Section */
+        .features-section {
             padding: 80px 0;
             background: var(--white);
         }
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--light-gray);
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
-        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--gray);
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .testimonial-text::before {
-            content: '"';
-            font-size: 60px;
-            color: var(--primary-color);
-            opacity: 0.2;
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            font-family: serif;
-        }
-
-        .testimonial-author {
+        .features-tabs {
             display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--medium-gray);
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            background: var(--primary-gradient);
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .author-info h5 {
+        .tab-btn {
+            padding: 12px 25px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h4 {
             font-size: 18px;
+            margin-bottom: 10px;
             color: var(--primary-dark);
         }
 
-        .author-info p {
+        .feature-item p {
             color: var(--gray);
             font-size: 14px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-dark);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 31, 90, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        /* Rating Section */
+        .rating-section {
+            padding: 80px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .rating-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .rating-stars {
+            font-size: 30px;
+            color: var(--rating-color);
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .rating-stars i {
+            margin: 0 5px;
+            transition: transform 0.2s;
+        }
+
+        .rating-stars i:hover {
+            transform: scale(1.2);
+        }
+
+        .rating-text {
+            color: var(--gray);
+            margin-bottom: 30px;
         }
 
         /* CTA Section */
@@ -640,6 +700,15 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero::before {
@@ -647,11 +716,11 @@
                 opacity: 0.5;
             }
 
-            .demo-content {
+            .efficiency-content {
                 flex-direction: column;
             }
 
-            .demo-video {
+            .efficiency-image {
                 width: 100%;
             }
         }
@@ -734,8 +803,9 @@
             <nav>
                 <ul>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#demo">How It Works</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#efficiency">Efficiency</a></li>
+                    <li><a href="#value">Value</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#" class="btn btn-outline">Login</a></li>
                 </ul>
             </nav>
@@ -770,139 +840,251 @@
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="demo-section" id="demo">
+    <!-- Business Efficiency Section -->
+    <section class="efficiency-section" id="efficiency">
         <div class="container">
             <div class="section-header">
-                <h2>See How PaperBill Works for Automobile Businesses</h2>
-                <p>Watch our 2-minute demo to see how PaperBill can transform your auto business operations.</p>
+                <h2>Maximize Your Auto Shop Business Efficiency with PaperBill</h2>
+                <p>Streamline your operations and boost productivity with our specialized automobile shop billing software</p>
             </div>
-            <div class="demo-content">
-                <div class="demo-video">
-                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Demo+Video+Placeholder" alt="PaperBill Demo Video">
+            <div class="efficiency-content">
+                <div class="efficiency-image">
+                    <img src="https://via.placeholder.com/600x400/f8f9fa/6c757d?text=Auto+Shop+Dashboard" alt="Auto Shop Dashboard">
                 </div>
-                <div class="demo-features">
-                    <ul class="feature-list">
-                        <li class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Specialized automobile billing</h4>
-                                <p>Customized invoicing for auto parts and services with all the fields you need.</p>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Parts inventory management</h4>
-                                <p>Track thousands of SKUs with barcode support and low stock alerts.</p>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Service job tracking</h4>
-                                <p>Manage service orders, technician assignments, and job statuses.</p>
-                            </div>
-                        </li>
+                <div class="efficiency-text">
+                    <h3>Transform Your Auto Business Operations</h3>
+                    <p>PaperBill is designed specifically for automobile shops to help you manage every aspect of your business more efficiently. From inventory tracking to customer management, our software provides the tools you need to succeed.</p>
+                    <ul class="efficiency-list">
+                        <li><i class="fas fa-check-circle"></i> Reduce manual data entry and paperwork by up to 80%</li>
+                        <li><i class="fas fa-check-circle"></i> Track inventory levels in real-time to prevent stockouts</li>
+                        <li><i class="fas fa-check-circle"></i> Automate invoicing and payment tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Generate insightful business reports with one click</li>
                     </ul>
-                    <div class="demo-button">
-                        <a href="#" class="btn btn-primary">Watch Full Demo</a>
-                    </div>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Value Section -->
+    <section class="value-section" id="value">
         <div class="container">
             <div class="section-header">
-                <h2>Complete Solution for Auto Businesses</h2>
-                <p>PaperBill provides all the tools you need to run your automobile retail or service business efficiently.</p>
+                <h2>PaperBill Automobile Billing App Adds Value To Your Auto Shop</h2>
+                <p>Discover how our specialized software can transform your automobile business operations</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-card-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Automobile-Specific Invoicing</h3>
-                    <p>Create professional invoices with vehicle details, parts lists, and labor charges tailored for auto businesses.</p>
+                    <h3>Boost Sales</h3>
+                    <p>Identify your best-selling items and optimize your inventory to increase revenue and reduce dead stock.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Time</h3>
+                    <p>Automate repetitive tasks and reduce manual work, giving you more time to focus on growing your business.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Reduce Costs</h3>
+                    <p>Minimize errors and inefficiencies that cost your business money with our accurate tracking systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Features Tailored For Automobile Shop Billing</h2>
+                <p>Specialized tools designed specifically for automobile retailers and service centers</p>
+            </div>
+            <div class="features-tabs">
+                <button class="tab-btn active" data-tab="billing">Billing</button>
+                <button class="tab-btn" data-tab="inventory">Inventory</button>
+                <button class="tab-btn" data-tab="reports">Reports</button>
+                <button class="tab-btn" data-tab="management">Management</button>
+            </div>
+            <div class="tab-content active" id="billing">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-file-invoice"></i>
+                        <h4>Automobile-Specific Invoices</h4>
+                        <p>Create professional invoices with vehicle details, parts lists, and labor charges.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-redo"></i>
+                        <h4>Recurring Billing</h4>
+                        <p>Set up automatic recurring invoices for regular customers and service contracts.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-credit-card"></i>
+                        <h4>Multiple Payment Options</h4>
+                        <p>Accept all payment methods including cash, cards, UPI, and online transfers.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-truck"></i>
+                        <h4>Delivery Tracking</h4>
+                        <p>Track parts deliveries and service pickups directly from your invoices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="inventory">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-barcode"></i>
+                        <h4>Barcode Scanning</h4>
+                        <p>Quickly add items to invoices by scanning barcodes with your smartphone.</p>
+                    </div>
+                    <div class="feature-item">
                         <i class="fas fa-boxes"></i>
+                        <h4>Batch Tracking</h4>
+                        <p>Track parts by batch numbers for better inventory control and recall management.</p>
                     </div>
-                    <h3>Advanced Inventory Management</h3>
-                    <p>Track parts inventory with barcode support, batch numbers, and supplier management.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon">
-                        <i class="fas fa-tools"></i>
+                    <div class="feature-item">
+                        <i class="fas fa-bell"></i>
+                        <h4>Low Stock Alerts</h4>
+                        <p>Get automatic notifications when inventory levels fall below your set thresholds.</p>
                     </div>
-                    <h3>Service Job Management</h3>
-                    <p>Schedule jobs, assign technicians, and track service progress from start to finish.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h4>Supplier Management</h4>
+                        <p>Track supplier information, lead times, and order history in one place.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon">
+            </div>
+            <div class="tab-content" id="reports">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <h4>Sales Analytics</h4>
+                        <p>Visualize your sales data to identify trends and best-selling items.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-excel"></i>
+                        <h4>Export Reports</h4>
+                        <p>Export any report to Excel or PDF for further analysis or sharing.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Periodic Reports</h4>
+                        <p>Generate daily, weekly, monthly, or custom period reports with ease.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Profit Analysis</h4>
+                        <p>Track your profit margins by product, category, or service type.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="management">
+                <div class="feature-grid">
+                    <div class="feature-item">
                         <i class="fas fa-car"></i>
+                        <h4>Vehicle History</h4>
+                        <p>Maintain complete service records for each vehicle in your system.</p>
                     </div>
-                    <h3>Vehicle History Tracking</h3>
-                    <p>Maintain complete service history for each vehicle to provide better customer service.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Customer CRM</h4>
+                        <p>Track customer interactions, preferences, and purchase history.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-tools"></i>
+                        <h4>Service Management</h4>
+                        <p>Schedule and track service jobs with technician assignments.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Mobile Access</h4>
+                        <p>Manage your business from anywhere with our mobile app.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-header">
-                <h2>Trusted by Auto Businesses Nationwide</h2>
-                <p>Hundreds of automobile retailers and service centers rely on PaperBill every day.</p>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about PaperBill for automobile businesses</p>
             </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        PaperBill has transformed how we manage our auto parts store. The inventory tracking alone has saved us thousands in lost sales and helped us optimize our stock levels.
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is PaperBill suitable for my auto parts store?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RS</div>
-                        <div class="author-info">
-                            <h5>Rajesh Sharma</h5>
-                            <p>Sharma Auto Parts, Delhi</p>
-                        </div>
+                    <div class="faq-answer">
+                        <p>Yes, PaperBill is specifically designed for automobile businesses including auto parts stores, service centers, and dealerships. Our software includes specialized features like parts inventory management, vehicle-specific invoicing, and service job tracking that are tailored to your industry.</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        The vehicle history feature is a game-changer for our service center. We can now provide complete service records to our customers, which has significantly improved trust and repeat business.
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does the inventory management work?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">PK</div>
-                        <div class="author-info">
-                            <h5>Priya Khanna</h5>
-                            <p>Speed Wheels, Bangalore</p>
-                        </div>
+                    <div class="faq-answer">
+                        <p>PaperBill's inventory system tracks all your parts and accessories with real-time updates. You can set minimum stock levels, track items by barcode or batch number, manage suppliers, and receive automatic alerts when stock is low. The system automatically updates inventory levels when you create invoices or receive new stock.</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Switching to PaperBill was the best decision for our bike accessories shop. The professional invoices have improved our brand image and made accounting much simpler.
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I access PaperBill on my mobile device?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AM</div>
-                        <div class="author-info">
-                            <h5>Arun Mehta</h5>
-                            <p>Mehta Motors, Mumbai</p>
-                        </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! PaperBill is fully responsive and works on all devices including smartphones and tablets. We also offer dedicated mobile apps for iOS and Android that allow you to create invoices, check inventory, and manage your business from anywhere.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What kind of support do you offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide comprehensive support including email, phone, and live chat during business hours. All customers also get access to our detailed knowledge base, video tutorials, and onboarding sessions to help you get started. Enterprise customers receive a dedicated account manager for personalized support.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How secure is my business data?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Data security is our top priority. PaperBill uses bank-grade 256-bit encryption for all data transmission and storage. We perform regular backups and offer two-factor authentication for added security. Your data is stored on secure servers with 99.9% uptime guarantee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rating Section -->
+    <section class="rating-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Useful Was This Information?</h2>
+                <p>Help us improve by rating your experience</p>
+            </div>
+            <div class="rating-container">
+                <div class="rating-stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p class="rating-text">Your feedback helps us create better content for automobile businesses like yours.</p>
+                <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
             </div>
         </div>
     </section>
@@ -910,7 +1092,7 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="cta-content">
-            <h2>Ready to Streamline Your Auto Business?</h2>
+            <h2>Ready to Transform Your Auto Business?</h2>
             <p>Join hundreds of automobile businesses using PaperBill to manage their operations more efficiently.</p>
             <div class="cta-buttons">
                 <a href="#" class="btn btn-light">Start 14-Day Free Trial</a>
@@ -969,5 +1151,75 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Star rating functionality
+        const stars = document.querySelectorAll('.rating-stars i');
+        const submitBtn = document.getElementById('submit-rating');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                selectedRating = rating;
+                
+                // Update stars display
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            if (selectedRating > 0) {
+                alert(`Thank you for your ${selectedRating}-star rating!`);
+                // In a real implementation, you would send this to your server
+            } else {
+                alert('Please select a rating before submitting.');
+            }
+        });
+    </script>
 </body>
 </html>
