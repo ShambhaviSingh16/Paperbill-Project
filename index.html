@@ -163,6 +163,7 @@
             background-position: right center;
             z-index: 1;
             opacity: 0.9;
+            
         }
 
         .hero-content {
@@ -258,7 +259,7 @@
         /* Business Efficiency Section */
         .efficiency-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--light-gray);
         }
 
         .section-header {
@@ -268,13 +269,43 @@
 
         .section-header h2 {
             font-size: 36px;
-            color: var(--primary-dark);
+            color: rgb(230, 211, 186);
             margin-bottom: 15px;
             animation: fadeInUp 0.8s ease-out;
         }
 
+         .section-header1 h2 {
+            font-size: 36px;
+            color: rgb(230, 211, 186);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header1 p {
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+             }
+         .section-header2 h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+.section-header2 p{
+    color: var(--primary-dark);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+}
+
         .section-header p {
-            color: var(--gray);
+            color: var(--white);
             max-width: 700px;
             margin: 0 auto;
             font-size: 18px;
@@ -313,7 +344,7 @@
         }
 
         .efficiency-text p {
-            color: var(--gray);
+            color: var(--primary-dark);
             margin-bottom: 20px;
             line-height: 1.8;
         }
@@ -321,6 +352,7 @@
         .efficiency-list {
             list-style: none;
             margin-bottom: 30px;
+            color: var(--primary-dark);
         }
 
         .efficiency-list li {
@@ -355,7 +387,7 @@
         /* Value Section */
         .value-section {
             padding: 80px 0;
-            background: var(--light-gray);
+            background: var(--primary-color);
         }
 
         .value-cards {
@@ -398,7 +430,7 @@
         /* Top Features Section */
         .features-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--primary-color);
         }
 
         .features-tabs {
@@ -552,7 +584,7 @@
         /* Rating Section */
         .rating-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--primary-color);
             text-align: center;
         }
 
@@ -578,7 +610,7 @@
         }
 
         .rating-text {
-            color: var(--gray);
+            color: var(--white);
             margin-bottom: 30px;
         }
 
@@ -640,7 +672,7 @@
         .cta {
             padding: 100px 0;
             text-align: center;
-            background: var(--primary-gradient);
+            background: var(--white);
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -662,6 +694,7 @@
         .cta-content {
             position: relative;
             z-index: 2;
+            color: var(--black);
             max-width: 800px;
             margin: 0 auto;
         }
@@ -1002,11 +1035,45 @@
             </div>
         </div>
     </section>
-
+<!-- Value Section -->
+    <section class="value-section" id="value">
+        <div class="container">
+            <div class="section-header">
+                <h2>PaperBill Automobile Billing App Adds Value To Your Auto Shop</h2>
+                <p>Discover how our specialized software can transform your automobile business operations</p>
+            </div>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Boost Sales</h3>
+                    <p>Identify your best-selling items and optimize your inventory to increase revenue and reduce dead
+                        stock.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Time</h3>
+                    <p>Automate repetitive tasks and reduce manual work, giving you more time to focus on growing your
+                        business.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Reduce Costs</h3>
+                    <p>Minimize errors and inefficiencies that cost your business money with our accurate tracking
+                        systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Business Efficiency Section -->
     <section class="efficiency-section" id="efficiency">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header2">
                 <h2>Maximize Your Auto Shop Business Efficiency with PaperBill</h2>
                 <p>Streamline your operations and boost productivity with our specialized automobile shop billing
                     software</p>
@@ -1093,41 +1160,7 @@
         </div>
     </section>
 
-    <!-- Value Section -->
-    <section class="value-section" id="value">
-        <div class="container">
-            <div class="section-header">
-                <h2>PaperBill Automobile Billing App Adds Value To Your Auto Shop</h2>
-                <p>Discover how our specialized software can transform your automobile business operations</p>
-            </div>
-            <div class="value-cards">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Boost Sales</h3>
-                    <p>Identify your best-selling items and optimize your inventory to increase revenue and reduce dead
-                        stock.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Save Time</h3>
-                    <p>Automate repetitive tasks and reduce manual work, giving you more time to focus on growing your
-                        business.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-rupee-sign"></i>
-                    </div>
-                    <h3>Reduce Costs</h3>
-                    <p>Minimize errors and inefficiencies that cost your business money with our accurate tracking
-                        systems.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Top Features Section -->
     <section class="features-section">
@@ -1336,7 +1369,7 @@
     <!-- Rating Section -->
     <section class="rating-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header1">
                 <h2>How Useful Was This Information?</h2>
                 <p>Help us improve by rating your experience</p>
             </div>
@@ -1368,7 +1401,7 @@
             <h2>Ready to Transform Your Auto Business?</h2>
             <p>Join hundreds of automobile businesses using PaperBill to manage their operations more efficiently.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-light">Start 7-Day Free Trial</a>
+                <a href="#" class="btn btn-outline">Start 7-Day Free Trial</a>
                 <a href="#demo" class="btn btn-outline">Watch Demo</a>
             </div>
         </div>
