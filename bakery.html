@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
+       :root {
             --primary-gradient: linear-gradient(90deg, #001F5A, #788bb3);
             --primary-color: #001F5A;
             --primary-light: #002b80;
@@ -93,7 +93,7 @@
         }
 
         .nav-links li a:hover {
-            color: var(--white);
+            color: var(--primary-color);
         }
 
         .mobile-menu-btn {
@@ -194,7 +194,7 @@
         /* Bakery Features Section */
         .features-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--primary-gradient);
         }
 
         .section-header {
@@ -204,7 +204,7 @@
 
         .section-header h2 {
             font-size: 36px;
-            color: var(--primary-dark);
+            color: rgb(230, 211, 186);
             margin-bottom: 15px;
         }
 
@@ -237,7 +237,7 @@
 
         .feature-icon {
             font-size: 50px;
-            color: var(--bakery-primary);
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
 
@@ -391,7 +391,7 @@
             opacity: 0.9;
         }
 
-        /* Download Button */
+         /* Enhanced Download Button Section */
         .download-section {
             position: fixed;
             bottom: 30px;
@@ -415,6 +415,21 @@
             font-size: 18px;
             box-shadow: 0 10px 25px rgba(0, 31, 90, 0.3);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
         }
 
         .download-btn:hover {
@@ -422,8 +437,38 @@
             box-shadow: 0 15px 30px rgba(0, 31, 90, 0.4);
         }
 
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
         .download-btn i {
             margin-right: 10px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .download-btn:hover i {
+            transform: translateY(-2px);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 31, 90, 0.4);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(0, 31, 90, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 31, 90, 0);
+            }
+        }
+
+        .download-btn {
+            animation: pulse 2s infinite;
         }
 
         /* Footer */
@@ -599,11 +644,236 @@
                 transform: translateY(0);
             }
         }
+        
+        /* Why Choose Section */
+        .why-choose-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Features Sections */
+        .features-highlight-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .feature-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .feature-tab-btn {
+            padding: 12px 25px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .feature-tab-btn.active {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+        
+        .feature-tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .feature-tab-content.active {
+            display: block;
+        }
+        
+        .feature-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon-sm {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-top: 3px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: var(--white);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--primary-color);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--gray);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        /* Rating Section */
+        .rating-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            text-align: center;
+            color: white;
+        }
+        
+        .rating-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .rating-stars {
+            font-size: 30px;
+            color: var(--rating-color);
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        
+        .rating-stars i {
+            margin: 0 5px;
+            transition: transform 0.2s;
+        }
+        
+        .rating-stars i:hover {
+            transform: scale(1.2);
+        }
+        
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .rating-alert {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: rgba(220, 53, 69, 0.2);
+            border-radius: 5px;
+            color: white;
+        }
+        
+        /* Add-ons Section */
+        .addons-section {
+            padding: 80px 0;
+            background: var(--bakery-secondary);
+        }
+        
+        .addon-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .addon-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .addon-card h3 i {
+            color: var(--bakery-primary);
+        }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
+     <!-- Navbar -->
     <nav class="navbar">
         <div class="container navbar-container">
             <a href="index.html" class="logo">
@@ -615,8 +885,8 @@
             </button>
             
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="index.html"><i class="fas fa-car"></i> Auto Shop</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="automobile.html"><i class="fas fa-car"></i> Automobile</a></li>
                 <li><a href="#"><i class="fas fa-download"></i> Download</a></li>
             </ul>
         </div>
@@ -714,6 +984,301 @@
         </div>
     </section>
 
+    <!-- Why PaperBill is the Best Bakery Billing Software -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why PaperBill is the Best Bakery Billing Software</h2>
+                <p>Designed specifically to meet the unique needs of bakery businesses</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3><i class="fas fa-bread-slice"></i> Bakery-Specific Features</h3>
+                    <p>From product variants to batch tracking, our software understands bakery operations better than generic solutions.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-rupee-sign"></i> Cost Effective</h3>
+                    <p>Affordable pricing with no hidden charges, designed for small and medium bakeries.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-clock"></i> Time Saving</h3>
+                    <p>Reduce manual work by up to 70% with automated billing, inventory tracking and reporting.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile Friendly</h3>
+                    <p>Manage your bakery from anywhere with our responsive web app and dedicated mobile applications.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-lock"></i> Data Security</h3>
+                    <p>Bank-level encryption and automatic backups keep your business data safe and secure.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-headset"></i> Dedicated Support</h3>
+                    <p>Our bakery business experts are available to help you get the most from PaperBill.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Powerful Add-On Features -->
+    <section class="addons-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Add-On Features</h2>
+                <p>Enhance your bakery operations with these specialized tools</p>
+            </div>
+            
+            <div class="addon-card">
+                <h3><i class="fas fa-utensils"></i> Recipe Management</h3>
+                <p>Create and manage recipes with ingredient lists and costs. Automatically calculate product costs based on current ingredient prices.</p>
+            </div>
+            
+            <div class="addon-card">
+                <h3><i class="fas fa-hourglass-end"></i> Expiry Tracking</h3>
+                <p>Get alerts when ingredients or products are nearing expiration to reduce waste and maintain quality.</p>
+            </div>
+            
+            <div class="addon-card">
+                <h3><i class="fas fa-tags"></i> Label Printing</h3>
+                <p>Print product labels with barcodes, ingredients, expiry dates and pricing directly from PaperBill.</p>
+            </div>
+            
+            <div class="addon-card">
+                <h3><i class="fas fa-chart-line"></i> Sales Analytics</h3>
+                <p>Identify your best-selling items, peak sales times, and customer preferences with detailed reports.</p>
+            </div>
+            
+            <div class="addon-card">
+                <h3><i class="fas fa-user-friends"></i> Loyalty Programs</h3>
+                <p>Create and manage customer loyalty programs to encourage repeat business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Features Section -->
+    <section class="features-highlight-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Features of PaperBill's Bakery Billing Software</h2>
+                <p>Everything you need to run your bakery business efficiently</p>
+            </div>
+            
+            <div class="feature-tabs">
+                <button class="feature-tab-btn active" data-tab="billing">Billing</button>
+                <button class="feature-tab-btn" data-tab="inventory">Inventory</button>
+                <button class="feature-tab-btn" data-tab="reports">Reports</button>
+                <button class="feature-tab-btn" data-tab="management">Management</button>
+            </div>
+            
+            <div class="feature-tab-content active" id="billing">
+                <div class="feature-columns">
+                    <div class="feature-item">
+                        <i class="fas fa-file-invoice feature-icon-sm"></i>
+                        <div>
+                            <h4>Bakery-Specific Invoices</h4>
+                            <p>Create professional invoices with item details, variants and bakery branding.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-credit-card feature-icon-sm"></i>
+                        <div>
+                            <h4>Multiple Payment Options</h4>
+                            <p>Accept cash, cards, UPI, wallets and online payments with integrated payment processing.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-percentage feature-icon-sm"></i>
+                        <div>
+                            <h4>Discount Management</h4>
+                            <p>Apply discounts by item, category or total bill with flexible discount options.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-barcode feature-icon-sm"></i>
+                        <div>
+                            <h4>Barcode Scanning</h4>
+                            <p>Quickly add items to bills by scanning barcodes with your smartphone or scanner.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-tab-content" id="inventory">
+                <div class="feature-columns">
+                    <div class="feature-item">
+                        <i class="fas fa-boxes feature-icon-sm"></i>
+                        <div>
+                            <h4>Ingredient Tracking</h4>
+                            <p>Track raw materials and ingredients with unit conversions and batch tracking.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bell feature-icon-sm"></i>
+                        <div>
+                            <h4>Low Stock Alerts</h4>
+                            <p>Get automatic notifications when stock levels fall below your set thresholds.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt feature-icon-sm"></i>
+                        <div>
+                            <h4>Expiry Management</h4>
+                            <p>Track product expiry dates and get alerts to reduce waste and maintain freshness.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-truck feature-icon-sm"></i>
+                        <div>
+                            <h4>Supplier Management</h4>
+                            <p>Track supplier information, order history and purchase terms in one place.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Reports Tab Content -->
+<div class="feature-tab-content" id="reports">
+    <div class="feature-columns">
+        <div class="feature-item">
+            <i class="fas fa-chart-pie feature-icon-sm"></i>
+            <div>
+                <h4>Sales Analytics</h4>
+                <p>Visualize your bakery's performance with detailed sales charts and graphs by product, category, and time period.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-file-excel feature-icon-sm"></i>
+            <div>
+                <h4>Profit Reports</h4>
+                <p>Track your bakery's profitability with detailed reports showing margins by product, category, and day.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-calendar-week feature-icon-sm"></i>
+            <div>
+                <h4>Daily Sales Summary</h4>
+                <p>Get automatic daily reports showing total sales, top-selling items, and customer counts.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-box-open feature-icon-sm"></i>
+            <div>
+                <h4>Waste Analysis</h4>
+                <p>Track and analyze product waste to identify opportunities to reduce costs and improve ordering.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-users feature-icon-sm"></i>
+            <div>
+                <h4>Customer Insights</h4>
+                <p>Understand your customers' purchasing patterns and preferences to tailor your offerings.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-truck feature-icon-sm"></i>
+            <div>
+                <h4>Supplier Performance</h4>
+                <p>Analyze supplier reliability, pricing trends, and delivery performance.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Management Tab Content -->
+<div class="feature-tab-content" id="management">
+    <div class="feature-columns">
+        <div class="feature-item">
+            <i class="fas fa-users-cog feature-icon-sm"></i>
+            <div>
+                <h4>Staff Management</h4>
+                <p>Track employee shifts, sales performance, and permissions with role-based access control.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-utensils feature-icon-sm"></i>
+            <div>
+                <h4>Recipe Costing</h4>
+                <p>Calculate exact costs for each recipe based on current ingredient prices to maintain profitability.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-calendar-alt feature-icon-sm"></i>
+            <div>
+                <h4>Production Planning</h4>
+                <p>Plan your daily production based on sales forecasts and advance orders to minimize waste.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-tags feature-icon-sm"></i>
+            <div>
+                <h4>Promotion Management</h4>
+                <p>Create and manage special offers, combo deals, and seasonal promotions.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-mobile-alt feature-icon-sm"></i>
+            <div>
+                <h4>Mobile Management</h4>
+                <p>Access your bakery's data and manage operations from anywhere with our mobile app.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-exchange-alt feature-icon-sm"></i>
+            <div>
+                <h4>Multi-Location</h4>
+                <p>Manage multiple bakery locations from a single dashboard with consolidated reporting.</p>
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </section>
+
+    <!-- Essential Features Section -->
+    <section class="features-section" style="background: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Essential Features of PaperBill's Bakery Billing Software</h2>
+                <p>Core functionality designed specifically for bakeries and confectioneries</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="background: var(--light-gray)">
+                    <div class="feature-icon">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <h3>Product Variants</h3>
+                    <p>Manage different sizes, flavors and types of bakery products with ease.</p>
+                </div>
+                
+                <div class="feature-card" style="background: var(--light-gray)">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Weight-Based Items</h3>
+                    <p>Sell products by weight with automatic price calculations.</p>
+                </div>
+                
+                <div class="feature-card" style="background: var(--light-gray)">
+                    <div class="feature-icon">
+                        <i class="fas fa-comment-dollar"></i>
+                    </div>
+                    <h3>Daily Specials</h3>
+                    <p>Create and manage daily special offers and combo deals.</p>
+                </div>
+                
+                <div class="feature-card" style="background: var(--light-gray)">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Advance Orders</h3>
+                    <p>Take and manage advance orders for special occasions and events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
@@ -768,7 +1333,105 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about PaperBill for bakeries</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is PaperBill suitable for small bakeries?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, PaperBill is designed to work for bakeries of all sizes, from small home bakeries to large commercial operations. Our pricing scales with your business needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I manage recipes and ingredient costs?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! PaperBill includes specialized recipe management tools that let you track ingredients, calculate product costs, and manage your bakery recipes all in one place.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does expiry date tracking work?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can enter expiry dates for perishable items when adding them to inventory. PaperBill will alert you when products are nearing expiration so you can use them or offer discounts.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I print labels for my bakery products?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, PaperBill supports label printing with customizable templates that can include product names, ingredients, prices, barcodes, and expiry dates.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is training provided for the software?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide comprehensive onboarding sessions, video tutorials, and 24/7 support to help you get started and make the most of PaperBill for your bakery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rating Section -->
+    <section class="rating-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Useful Was This Information?</h2>
+                <p>Help us improve by rating your experience</p>
+            </div>
+            
+            <div class="rating-container">
+                <div class="rating-stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                
+                <p>Your feedback helps us create better content for bakery businesses like yours.</p>
+                
+                <button class="btn btn-light" id="submit-rating">Submit Rating</button>
+                
+                <div class="thank-you-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You for Your Feedback!</h3>
+                    <p>We appreciate you taking the time to rate our content.</p>
+                </div>
+                
+                <div class="rating-alert">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Please select a rating before submitting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
@@ -789,7 +1452,7 @@
         </a>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer 
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -835,10 +1498,10 @@
                 <p>&copy; 2023 PaperBill. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </footer>-->
 
     <script>
-        // Mobile menu toggle
+         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
 
@@ -865,6 +1528,83 @@
                     behavior: 'smooth'
                 });
             });
+        });
+        
+        // Feature Tabs
+        const featureTabBtns = document.querySelectorAll('.feature-tab-btn');
+        const featureTabContents = document.querySelectorAll('.feature-tab-content');
+        
+        featureTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                featureTabBtns.forEach(btn => btn.classList.remove('active'));
+                featureTabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Rating System
+        const stars = document.querySelectorAll('.rating-stars i');
+        const submitBtn = document.getElementById('submit-rating');
+        const thankYouMsg = document.querySelector('.thank-you-message');
+        const ratingAlert = document.querySelector('.rating-alert');
+        let selectedRating = 0;
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                selectedRating = rating;
+                
+                // Update stars display
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+                
+                // Hide any messages
+                thankYouMsg.style.display = 'none';
+                ratingAlert.style.display = 'none';
+            });
+        });
+        
+        submitBtn.addEventListener('click', function() {
+            if (selectedRating > 0) {
+                thankYouMsg.style.display = 'block';
+                ratingAlert.style.display = 'none';
+                // Here you would typically send the rating to your server
+                console.log('User rated:', selectedRating, 'stars');
+            } else {
+                ratingAlert.style.display = 'flex';
+                thankYouMsg.style.display = 'none';
+            }
         });
     </script>
 </body>
