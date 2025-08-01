@@ -194,7 +194,7 @@
         /* Bakery Features Section */
         .features-section {
             padding: 80px 0;
-            background: var(--primary-gradient);
+            background: var(--primary-color );
         }
 
         .section-header {
@@ -254,7 +254,7 @@
         /* Bakery Management Section */
         .management-section {
             padding: 80px 0;
-            background: var(--bakery-secondary);
+            background: var(--light-gray);
         }
 
         .management-content {
@@ -310,86 +310,92 @@
             margin-top: 4px;
         }
 
+        
         /* Testimonials Section */
-        .testimonials-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
+.testimonials-section {
+    padding: 80px 0;
+    background: var(--primary-color);
+    text-align: center;
+}
 
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        .testimonial-card {
-            background: var(--light-gray);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
+.testimonial-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
 
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.testimonial-text {
+    position: relative;
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--gray-dark);
+}
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
+.quote-icon {
+    font-size: 60px;
+    color: var(--primary-color);
+    opacity: 0.1;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: serif;
+    line-height: 1;
+}
 
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.testimonial-text p {
+    position: relative;
+    z-index: 1;
+}
 
-        .author-info h4 {
-            font-size: 18px;
-            color: var(--primary-dark);
-            margin-bottom: 5px;
-        }
+.testimonial-author {
+    margin-top: 20px;
+}
 
-        .author-info p {
-            color: var(--gray);
-            font-size: 14px;
-        }
+.author-name {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+}
 
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--primary-color);
-            text-align: center;
-            color: var(--white);
-        }
+.author-business {
+    font-size: 14px;
+    color: var(--gray);
+    font-style: italic;
+}
 
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+@media (max-width: 768px) {
+    .testimonials-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .testimonial-card {
+        padding: 25px;
+    }
+}
 
-        .cta-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 18px;
-            opacity: 0.9;
-        }
 
          /* Enhanced Download Button Section */
         .download-section {
@@ -549,34 +555,92 @@
             font-size: 14px;
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero::before {
                 width: 40%;
-                opacity: 0.6;
+                opacity: 0.5;
             }
 
-            .management-content {
+            .efficiency-content {
                 flex-direction: column;
+            }
+
+            .efficiency-image {
+                width: 100%;
             }
         }
 
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            /* Navbar responsive styles */
             .mobile-menu-btn {
                 display: block;
             }
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 left: -100%;
                 width: 80%;
-                height: calc(100vh - 70px);
-                background: var(--primary-dark);
+                height: calc(100vh - 80px);
+                background: var(--white);
                 flex-direction: column;
                 align-items: center;
                 padding: 40px 20px;
                 transition: left 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.active {
@@ -609,6 +673,10 @@
                 align-items: center;
             }
 
+            .invoice-preview {
+                margin: 40px auto 0;
+            }
+
             .section-header h2 {
                 font-size: 30px;
             }
@@ -623,28 +691,20 @@
                 font-size: 28px;
             }
 
-            .cta-section h2 {
+            .cta h2 {
                 font-size: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
             .download-btn {
                 padding: 12px 20px;
                 font-size: 16px;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
+        }        
         /* Why Choose Section */
         .why-choose-section {
             padding: 80px 0;
@@ -683,7 +743,7 @@
         /* Features Sections */
         .features-highlight-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--primary-color);
         }
         
         .feature-tabs {
@@ -743,111 +803,11 @@
             margin-top: 3px;
         }
         
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 0;
-            background: var(--light-gray);
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            background: var(--white);
-            transition: all 0.3s ease;
-        }
-        
-        .faq-question {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--primary-dark);
-            background: var(--white);
-        }
-        
-        .faq-question i {
-            transition: transform 0.3s;
-            color: var(--primary-color);
-        }
-        
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            color: var(--gray);
-        }
-        
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 500px;
-        }
-        
-        /* Rating Section */
-        .rating-section {
-            padding: 80px 0;
-            background: var(--primary-color);
-            text-align: center;
-            color: white;
-        }
-        
-        .rating-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .rating-stars {
-            font-size: 30px;
-            color: var(--rating-color);
-            margin: 20px 0;
-            cursor: pointer;
-        }
-        
-        .rating-stars i {
-            margin: 0 5px;
-            transition: transform 0.2s;
-        }
-        
-        .rating-stars i:hover {
-            transform: scale(1.2);
-        }
-        
-        .thank-you-message {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-        }
-        
-        .rating-alert {
-            display: none;
-            text-align: center;
-            margin-top: 15px;
-            padding: 10px 15px;
-            background: rgba(220, 53, 69, 0.2);
-            border-radius: 5px;
-            color: white;
-        }
         
         /* Add-ons Section */
         .addons-section {
             padding: 80px 0;
-            background: var(--bakery-secondary);
+            background: var(--light-gray);
         }
         
         .addon-card {
@@ -868,6 +828,243 @@
         
         .addon-card h3 i {
             color: var(--bakery-primary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-dark);
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 31, 90, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .faq-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Rating Section */
+        .rating-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            text-align: center;
+        }
+
+        .rating-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .rating-stars {
+            font-size: 30px;
+            color: var(--rating-color);
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .rating-stars i {
+            margin: 0 5px;
+            transition: transform 0.2s;
+        }
+
+        .rating-stars i:hover {
+            transform: scale(1.2);
+        }
+
+        .rating-text {
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .thank-you-message i {
+            font-size: 50px;
+            color: var(--success-color);
+            margin-bottom: 15px;
+        }
+
+        .thank-you-message h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .thank-you-message p {
+            color: var(--gray);
+        }
+.section-header1 h2 {
+            font-size: 36px;
+            color: rgb(230, 211, 186);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header1 p {
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+             }
+        .rating-alert {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 5px;
+            color: #dc3545;
+            animation: fadeIn 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .rating-alert i {
+            font-size: 18px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--white);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1200x400/001F5A/788bb3?text=PaperBill+Background') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            color: var(--black);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
         }
     </style>
 </head>
@@ -960,29 +1157,7 @@
         </div>
     </section>
 
-    <!-- Bakery Management Section -->
-    <section class="management-section">
-        <div class="container">
-            <div class="management-content">
-                <div class="management-image">
-                    <img src="bakery-dashboard.jpg" alt="Bakery Management Dashboard">
-                </div>
-                <div class="management-text">
-                    <h2>Complete Bakery Shop Management</h2>
-                    <p>PaperBill provides all the tools you need to run your bakery business smoothly, from billing to inventory to customer management.</p>
-                    <ul class="management-list">
-                        <li><i class="fas fa-check"></i> Track daily sales and expenses</li>
-                        <li><i class="fas fa-check"></i> Manage recipes and ingredient costs</li>
-                        <li><i class="fas fa-check"></i> Generate GST-compliant invoices</li>
-                        <li><i class="fas fa-check"></i> Accept multiple payment methods</li>
-                        <li><i class="fas fa-check"></i> Print bills and labels</li>
-                        <li><i class="fas fa-check"></i> Cloud backup for data security</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Why PaperBill is the Best Bakery Billing Software -->
     <section class="why-choose-section">
@@ -1016,41 +1191,6 @@
                     <h3><i class="fas fa-headset"></i> Dedicated Support</h3>
                     <p>Our bakery business experts are available to help you get the most from PaperBill.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Powerful Add-On Features -->
-    <section class="addons-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Powerful Add-On Features</h2>
-                <p>Enhance your bakery operations with these specialized tools</p>
-            </div>
-            
-            <div class="addon-card">
-                <h3><i class="fas fa-utensils"></i> Recipe Management</h3>
-                <p>Create and manage recipes with ingredient lists and costs. Automatically calculate product costs based on current ingredient prices.</p>
-            </div>
-            
-            <div class="addon-card">
-                <h3><i class="fas fa-hourglass-end"></i> Expiry Tracking</h3>
-                <p>Get alerts when ingredients or products are nearing expiration to reduce waste and maintain quality.</p>
-            </div>
-            
-            <div class="addon-card">
-                <h3><i class="fas fa-tags"></i> Label Printing</h3>
-                <p>Print product labels with barcodes, ingredients, expiry dates and pricing directly from PaperBill.</p>
-            </div>
-            
-            <div class="addon-card">
-                <h3><i class="fas fa-chart-line"></i> Sales Analytics</h3>
-                <p>Identify your best-selling items, peak sales times, and customer preferences with detailed reports.</p>
-            </div>
-            
-            <div class="addon-card">
-                <h3><i class="fas fa-user-friends"></i> Loyalty Programs</h3>
-                <p>Create and manage customer loyalty programs to encourage repeat business.</p>
             </div>
         </div>
     </section>
@@ -1234,6 +1374,7 @@
             
         </div>
     </section>
+    
 
     <!-- Essential Features Section -->
     <section class="features-section" style="background: var(--primary-color); color: white;">
@@ -1279,65 +1420,79 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- Bakery Management Section -->
+    <section class="management-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Trusted by Bakery Owners</h2>
-                <p>See what our customers say about PaperBill for bakeries</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "PaperBill has transformed how we manage our bakery. The inventory tracking for perishable items is a game-changer!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="user1.jpg" alt="Rajesh Kumar">
-                        </div>
-                        <div class="author-info">
-                            <h4>Rajesh Kumar</h4>
-                            <p>Sweet Delights Bakery</p>
-                        </div>
-                    </div>
+            <div class="management-content">
+                <div class="management-image">
+                    <img src="bakery-dashboard.jpg" alt="Bakery Management Dashboard">
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "Creating invoices is now so quick, and the sales reports help me understand which products are most profitable."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="user2.jpg" alt="Priya Sharma">
-                        </div>
-                        <div class="author-info">
-                            <h4>Priya Sharma</h4>
-                            <p>Heavenly Cakes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "The mobile app lets me check sales and inventory from anywhere. Perfect for busy bakery owners!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="user3.jpg" alt="Amit Patel">
-                        </div>
-                        <div class="author-info">
-                            <h4>Amit Patel</h4>
-                            <p>Bread & Butter</p>
-                        </div>
-                    </div>
+                <div class="management-text">
+                    <h2>Complete Bakery Shop Management</h2>
+                    <p>PaperBill provides all the tools you need to run your bakery business smoothly, from billing to inventory to customer management.</p>
+                    <ul class="management-list">
+                        <li><i class="fas fa-check"></i> Track daily sales and expenses</li>
+                        <li><i class="fas fa-check"></i> Manage recipes and ingredient costs</li>
+                        <li><i class="fas fa-check"></i> Generate GST-compliant invoices</li>
+                        <li><i class="fas fa-check"></i> Accept multiple payment methods</li>
+                        <li><i class="fas fa-check"></i> Print bills and labels</li>
+                        <li><i class="fas fa-check"></i> Cloud backup for data security</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Trusted by Bakery Owners</h2>
+            <p>See what our customers say about PaperBill for bakeries</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <span class="quote-icon">"</span>
+                    <p>PaperBill has transformed how we manage our bakery. The inventory tracking for perishable items is a game-changer!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-name">Rajesh Kumar</div>
+                    <div class="author-business">Sweet Delights Bakery</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <span class="quote-icon">"</span>
+                    <p>Creating invoices is now so quick, and the sales reports help me understand which products are most profitable.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-name">Priya Sharma</div>
+                    <div class="author-business">Heavenly Cakes</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <span class="quote-icon">"</span>
+                    <p>The mobile app lets me check sales and inventory from anywhere. Perfect for busy bakery owners!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-name">Amit Patel</div>
+                    <div class="author-business">Bread & Butter</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq-section" id="faq">
         <div class="container">
-            <div class="section-header">
+            <div class="faq-header">
                 <h2>Frequently Asked Questions</h2>
                 <p>Find answers to common questions about PaperBill for bakeries</p>
             </div>
@@ -1399,11 +1554,10 @@
     <!-- Rating Section -->
     <section class="rating-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header1">
                 <h2>How Useful Was This Information?</h2>
                 <p>Help us improve by rating your experience</p>
             </div>
-            
             <div class="rating-container">
                 <div class="rating-stars">
                     <i class="far fa-star" data-rating="1"></i>
@@ -1412,38 +1566,32 @@
                     <i class="far fa-star" data-rating="4"></i>
                     <i class="far fa-star" data-rating="5"></i>
                 </div>
-                
-                <p>Your feedback helps us create better content for bakery businesses like yours.</p>
-                
-                <button class="btn btn-light" id="submit-rating">Submit Rating</button>
-                
-                <div class="thank-you-message">
+                <p class="rating-text">Your feedback helps us create better content for bakery businesses like
+                    yours.</p>
+                <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
+
+                <!-- Thank you message (hidden by default) -->
+                <div class="thank-you-message" style="display: none;">
                     <i class="fas fa-check-circle"></i>
                     <h3>Thank You for Your Feedback!</h3>
                     <p>We appreciate you taking the time to rate our content.</p>
-                </div>
-                
-                <div class="rating-alert">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span>Please select a rating before submitting</span>
                 </div>
             </div>
         </div>
     </section>
 
         <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Bakery Business?</h2>
+    <section class="cta">
+        <div class="cta-content">
+           <h2>Ready to Transform Your Bakery Business?</h2>
                 <p>Join hundreds of bakery owners using PaperBill to simplify their operations and grow their business.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Start 7-Day Free Trial</a>
-                    <a href="#demo" class="btn btn-outline">Watch Demo</a>
-                </div>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-outline">Start 7-Day Free Trial</a>
+                <a href="#demo" class="btn btn-outline">Watch Demo</a>
             </div>
         </div>
     </section>
+    
 
     <!-- Download Button -->
     <div class="download-section">
@@ -1520,64 +1668,69 @@
             });
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Feature Tabs
-        const featureTabBtns = document.querySelectorAll('.feature-tab-btn');
-        const featureTabContents = document.querySelectorAll('.feature-tab-content');
-        
-        featureTabBtns.forEach(btn => {
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons and contents
-                featureTabBtns.forEach(btn => btn.classList.remove('active'));
-                featureTabContents.forEach(content => content.classList.remove('active'));
-                
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
                 // Add active class to clicked button and corresponding content
                 btn.classList.add('active');
                 const tabId = btn.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
         });
-        
-        // FAQ Accordion
+
+        // FAQ accordion functionality
         const faqItems = document.querySelectorAll('.faq-item');
-        
+
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            
+
             question.addEventListener('click', () => {
                 // Close all other items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
+                        const icon = otherItem.querySelector('.faq-question i');
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
                     }
                 });
-                
+
                 // Toggle current item
                 item.classList.toggle('active');
+                const icon = question.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
             });
         });
-        
-        // Rating System
+
+        // Updated rating functionality with single error message
         const stars = document.querySelectorAll('.rating-stars i');
         const submitBtn = document.getElementById('submit-rating');
-        const thankYouMsg = document.querySelector('.thank-you-message');
-        const ratingAlert = document.querySelector('.rating-alert');
+        const thankYouMessage = document.querySelector('.thank-you-message');
         let selectedRating = 0;
-        
+        let errorMessage = null;
+        let attemptCount = 0;
+        const baseTimeout = 2000; // 2 seconds base timeout
+        const maxTimeout = 5000; // 5 seconds maximum timeout
+
         stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
                 selectedRating = rating;
-                
+                attemptCount = 0; // Reset attempt count when user selects a rating
+
                 // Update stars display
                 stars.forEach((s, index) => {
                     if (index < rating) {
@@ -1588,22 +1741,56 @@
                         s.classList.add('far');
                     }
                 });
-                
-                // Hide any messages
-                thankYouMsg.style.display = 'none';
-                ratingAlert.style.display = 'none';
+
+                // Remove any existing error message
+                if (errorMessage) {
+                    errorMessage.remove();
+                    errorMessage = null;
+                }
             });
         });
-        
-        submitBtn.addEventListener('click', function() {
+
+        submitBtn.addEventListener('click', () => {
             if (selectedRating > 0) {
-                thankYouMsg.style.display = 'block';
-                ratingAlert.style.display = 'none';
-                // Here you would typically send the rating to your server
-                console.log('User rated:', selectedRating, 'stars');
+                // Hide rating elements
+                document.querySelector('.rating-stars').style.display = 'none';
+                document.querySelector('.rating-text').style.display = 'none';
+                submitBtn.style.display = 'none';
+
+                // Show thank you message
+                thankYouMessage.style.display = 'block';
+
+                // Reset attempt count on successful submission
+                attemptCount = 0;
+
+                // In a real implementation, you would send the rating to your server here
+                console.log(`User rated: ${selectedRating} stars`);
             } else {
-                ratingAlert.style.display = 'flex';
-                thankYouMsg.style.display = 'none';
+                // Remove previous error message if exists
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+
+                // Calculate timeout duration (increases with each attempt)
+                const timeoutDuration = Math.min(baseTimeout + (attemptCount * 1000), maxTimeout);
+                attemptCount++;
+
+                // Create new error message
+                errorMessage = document.createElement('div');
+                errorMessage.className = 'rating-alert';
+                errorMessage.innerHTML = `
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Please select a rating before submitting</span>
+            `;
+                document.querySelector('.rating-container').appendChild(errorMessage);
+
+                // Remove after calculated timeout duration
+                setTimeout(() => {
+                    if (errorMessage) {
+                        errorMessage.remove();
+                        errorMessage = null;
+                    }
+                }, timeoutDuration);
             }
         });
     </script>
