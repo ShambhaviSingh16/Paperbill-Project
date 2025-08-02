@@ -710,6 +710,10 @@
             padding: 80px 0;
             background: var(--light-gray);
         }
+        .why-choose-section .section-header h2 {
+    color: var(--primary-color);  /* Changed from rgb(230, 211, 186) to primary color */
+    margin-bottom: 15px;
+}
         
         .benefits-grid {
             display: grid;
@@ -747,36 +751,36 @@
         }
         
         .feature-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .feature-tab-btn {
-            padding: 12px 25px;
-            background: var(--light-gray);
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .feature-tab-btn.active {
-            background: var(--primary-gradient);
-            color: var(--white);
-        }
-        
-        .feature-tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .feature-tab-content.active {
-            display: block;
-        }
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-tab-btn {
+    padding: 12px 25px;
+    background: var(--light-gray);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.feature-tab-btn.active {
+    background: var(--primary-gradient);
+    color: var(--white);
+}
+
+.feature-tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.feature-tab-content.active {
+    display: block;
+}
         
         .feature-columns {
             display: grid;
@@ -1103,7 +1107,116 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Combined Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Complete Bakery Management Features</h2>
+            <p>All the specialized tools you need to run your bakery business efficiently</p>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Core Features -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bread-slice"></i>
+                </div>
+                <h3>Product Management</h3>
+                <p>Easily manage your bakery items with categories, variants, and batch tracking.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-egg"></i>
+                </div>
+                <h3>Product Variants</h3>
+                <p>Manage different sizes, flavors and types of bakery products with ease.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <h3>Smart Invoicing</h3>
+                <p>Create beautiful invoices with your bakery's branding and item details.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Weight-Based Items</h3>
+                <p>Sell products by weight with automatic price calculations.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Sales Analytics</h3>
+                <p>Track best-selling items, peak hours, and customer preferences.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comment-dollar"></i>
+                </div>
+                <h3>Daily Specials</h3>
+                <p>Create and manage daily special offers and combo deals.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <h3>Inventory Control</h3>
+                <p>Get low stock alerts and manage ingredients with expiry tracking.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Advance Orders</h3>
+                <p>Take and manage advance orders for special occasions and events.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Customer CRM</h3>
+                <p>Build loyalty with customer profiles and purchase history.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile App</h3>
+                <p>Manage your bakery on-the-go with our dedicated mobile application.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-barcode"></i>
+                </div>
+                <h3>Barcode Scanning</h3>
+                <p>Quickly add items to bills by scanning barcodes with your smartphone or scanner.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <h3>Discount Management</h3>
+                <p>Apply discounts by item, category or total bill with flexible discount options.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- <Features Section
     <section class="features-section">
         <div class="container">
             <div class="section-header">
@@ -1155,7 +1268,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>> -->
 
     
 
@@ -1163,6 +1276,7 @@
     <section class="why-choose-section">
         <div class="container">
             <div class="section-header">
+                <!--<div class="section-header" style="color: var(--primary-color);">-->
                 <h2>Why PaperBill is the Best Bakery Billing Software</h2>
                 <p>Designed specifically to meet the unique needs of bakery businesses</p>
             </div>
@@ -1196,187 +1310,160 @@
     </section>
 
     <!-- Top Features Section -->
-    <section class="features-highlight-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Top Features of PaperBill's Bakery Billing Software</h2>
-                <p>Everything you need to run your bakery business efficiently</p>
-            </div>
-            
-            <div class="feature-tabs">
-                <button class="feature-tab-btn active" data-tab="billing">Billing</button>
-                <button class="feature-tab-btn" data-tab="inventory">Inventory</button>
-                <button class="feature-tab-btn" data-tab="reports">Reports</button>
-                <button class="feature-tab-btn" data-tab="management">Management</button>
-            </div>
-            
-            <div class="feature-tab-content active" id="billing">
-                <div class="feature-columns">
-                    <div class="feature-item">
-                        <i class="fas fa-file-invoice feature-icon-sm"></i>
-                        <div>
-                            <h4>Bakery-Specific Invoices</h4>
-                            <p>Create professional invoices with item details, variants and bakery branding.</p>
-                        </div>
+<section class="features-highlight-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Top Features of PaperBill's Bakery Billing Software</h2>
+            <p>Everything you need to run your bakery business efficiently</p>
+        </div>
+        
+        <div class="feature-tabs">
+            <button class="feature-tab-btn active" data-tab="billing">Billing</button>
+            <button class="feature-tab-btn" data-tab="inventory">Inventory</button>
+            <button class="feature-tab-btn" data-tab="reports">Reports</button>
+            <button class="feature-tab-btn" data-tab="management">Management</button>
+        </div>
+        
+        <!-- Billing Tab Content -->
+        <div class="feature-tab-content active" id="billing-tab">
+            <div class="feature-columns">
+                <div class="feature-item">
+                    <i class="fas fa-file-invoice feature-icon-sm"></i>
+                    <div>
+                        <h4>Bakery-Specific Invoices</h4>
+                        <p>Create professional invoices with item details, variants and bakery branding.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-credit-card feature-icon-sm"></i>
-                        <div>
-                            <h4>Multiple Payment Options</h4>
-                            <p>Accept cash, cards, UPI, wallets and online payments with integrated payment processing.</p>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-credit-card feature-icon-sm"></i>
+                    <div>
+                        <h4>Multiple Payment Options</h4>
+                        <p>Accept cash, cards, UPI, wallets and online payments with integrated payment processing.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-percentage feature-icon-sm"></i>
-                        <div>
-                            <h4>Discount Management</h4>
-                            <p>Apply discounts by item, category or total bill with flexible discount options.</p>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-percentage feature-icon-sm"></i>
+                    <div>
+                        <h4>Discount Management</h4>
+                        <p>Apply discounts by item, category or total bill with flexible discount options.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-barcode feature-icon-sm"></i>
-                        <div>
-                            <h4>Barcode Scanning</h4>
-                            <p>Quickly add items to bills by scanning barcodes with your smartphone or scanner.</p>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-barcode feature-icon-sm"></i>
+                    <div>
+                        <h4>Barcode Scanning</h4>
+                        <p>Quickly add items to bills by scanning barcodes with your smartphone or scanner.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="feature-tab-content" id="inventory">
-                <div class="feature-columns">
-                    <div class="feature-item">
-                        <i class="fas fa-boxes feature-icon-sm"></i>
-                        <div>
-                            <h4>Ingredient Tracking</h4>
-                            <p>Track raw materials and ingredients with unit conversions and batch tracking.</p>
-                        </div>
+        </div>
+        
+        <!-- Inventory Tab Content -->
+        <div class="feature-tab-content" id="inventory-tab">
+            <div class="feature-columns">
+                <div class="feature-item">
+                    <i class="fas fa-boxes feature-icon-sm"></i>
+                    <div>
+                        <h4>Ingredient Tracking</h4>
+                        <p>Track raw materials and ingredients with unit conversions and batch tracking.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-bell feature-icon-sm"></i>
-                        <div>
-                            <h4>Low Stock Alerts</h4>
-                            <p>Get automatic notifications when stock levels fall below your set thresholds.</p>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bell feature-icon-sm"></i>
+                    <div>
+                        <h4>Low Stock Alerts</h4>
+                        <p>Get automatic notifications when stock levels fall below your set thresholds.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-calendar-alt feature-icon-sm"></i>
-                        <div>
-                            <h4>Expiry Management</h4>
-                            <p>Track product expiry dates and get alerts to reduce waste and maintain freshness.</p>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt feature-icon-sm"></i>
+                    <div>
+                        <h4>Expiry Management</h4>
+                        <p>Track product expiry dates and get alerts to reduce waste and maintain freshness.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-truck feature-icon-sm"></i>
-                        <div>
-                            <h4>Supplier Management</h4>
-                            <p>Track supplier information, order history and purchase terms in one place.</p>
-                        </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-truck feature-icon-sm"></i>
+                    <div>
+                        <h4>Supplier Management</h4>
+                        <p>Track supplier information, order history and purchase terms in one place.</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- Reports Tab Content -->
-<div class="feature-tab-content" id="reports">
-    <div class="feature-columns">
-        <div class="feature-item">
-            <i class="fas fa-chart-pie feature-icon-sm"></i>
-            <div>
-                <h4>Sales Analytics</h4>
-                <p>Visualize your bakery's performance with detailed sales charts and graphs by product, category, and time period.</p>
+        </div>
+        
+        <!-- Reports Tab Content -->
+        <div class="feature-tab-content" id="reports-tab">
+            <div class="feature-columns">
+                <div class="feature-item">
+                    <i class="fas fa-chart-pie feature-icon-sm"></i>
+                    <div>
+                        <h4>Sales Analytics</h4>
+                        <p>Visualize your bakery's performance with detailed sales charts and graphs.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-file-excel feature-icon-sm"></i>
+                    <div>
+                        <h4>Profit Reports</h4>
+                        <p>Track your bakery's profitability with detailed margin reports by product.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-week feature-icon-sm"></i>
+                    <div>
+                        <h4>Daily Sales Summary</h4>
+                        <p>Get automatic daily reports showing total sales and top-selling items.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-box-open feature-icon-sm"></i>
+                    <div>
+                        <h4>Waste Analysis</h4>
+                        <p>Track and analyze product waste to reduce costs and improve ordering.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="feature-item">
-            <i class="fas fa-file-excel feature-icon-sm"></i>
-            <div>
-                <h4>Profit Reports</h4>
-                <p>Track your bakery's profitability with detailed reports showing margins by product, category, and day.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-calendar-week feature-icon-sm"></i>
-            <div>
-                <h4>Daily Sales Summary</h4>
-                <p>Get automatic daily reports showing total sales, top-selling items, and customer counts.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-box-open feature-icon-sm"></i>
-            <div>
-                <h4>Waste Analysis</h4>
-                <p>Track and analyze product waste to identify opportunities to reduce costs and improve ordering.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-users feature-icon-sm"></i>
-            <div>
-                <h4>Customer Insights</h4>
-                <p>Understand your customers' purchasing patterns and preferences to tailor your offerings.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-truck feature-icon-sm"></i>
-            <div>
-                <h4>Supplier Performance</h4>
-                <p>Analyze supplier reliability, pricing trends, and delivery performance.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Management Tab Content -->
-<div class="feature-tab-content" id="management">
-    <div class="feature-columns">
-        <div class="feature-item">
-            <i class="fas fa-users-cog feature-icon-sm"></i>
-            <div>
-                <h4>Staff Management</h4>
-                <p>Track employee shifts, sales performance, and permissions with role-based access control.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-utensils feature-icon-sm"></i>
-            <div>
-                <h4>Recipe Costing</h4>
-                <p>Calculate exact costs for each recipe based on current ingredient prices to maintain profitability.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-calendar-alt feature-icon-sm"></i>
-            <div>
-                <h4>Production Planning</h4>
-                <p>Plan your daily production based on sales forecasts and advance orders to minimize waste.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-tags feature-icon-sm"></i>
-            <div>
-                <h4>Promotion Management</h4>
-                <p>Create and manage special offers, combo deals, and seasonal promotions.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-mobile-alt feature-icon-sm"></i>
-            <div>
-                <h4>Mobile Management</h4>
-                <p>Access your bakery's data and manage operations from anywhere with our mobile app.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-exchange-alt feature-icon-sm"></i>
-            <div>
-                <h4>Multi-Location</h4>
-                <p>Manage multiple bakery locations from a single dashboard with consolidated reporting.</p>
+        
+        <!-- Management Tab Content -->
+        <div class="feature-tab-content" id="management-tab">
+            <div class="feature-columns">
+                <div class="feature-item">
+                    <i class="fas fa-users-cog feature-icon-sm"></i>
+                    <div>
+                        <h4>Staff Management</h4>
+                        <p>Track employee shifts, sales performance, and permissions.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-utensils feature-icon-sm"></i>
+                    <div>
+                        <h4>Recipe Costing</h4>
+                        <p>Calculate exact costs for each recipe based on current ingredient prices.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt feature-icon-sm"></i>
+                    <div>
+                        <h4>Production Planning</h4>
+                        <p>Plan your daily production based on sales forecasts and advance orders.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tags feature-icon-sm"></i>
+                    <div>
+                        <h4>Promotion Management</h4>
+                        <p>Create and manage special offers, combo deals, and seasonal promotions.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-            
-        </div>
-    </section>
+</section>
     
 
-    <!-- Essential Features Section -->
+    <!-- Essential Features Section
     <section class="features-section" style="background: var(--primary-color); color: white;">
         <div class="container">
             <div class="section-header">
@@ -1418,7 +1505,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Bakery Management Section -->
     <section class="management-section">
@@ -1582,7 +1669,7 @@
 
         <!-- CTA Section -->
     <section class="cta">
-        <div class="cta-content">
+        <div class="cta-content" style="color: var(--primary-color);">
            <h2>Ready to Transform Your Bakery Business?</h2>
                 <p>Join hundreds of bakery owners using PaperBill to simplify their operations and grow their business.</p>
             <div class="cta-buttons">
@@ -1668,22 +1755,24 @@
             });
         });
 
-        // Tab functionality
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
+        // Feature Tab Functionality
+const featureTabBtns = document.querySelectorAll('.feature-tab-btn');
+const featureTabContents = document.querySelectorAll('.feature-tab-content');
 
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabBtns.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
+featureTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        featureTabBtns.forEach(btn => btn.classList.remove('active'));
+        featureTabContents.forEach(content => content.classList.remove('active'));
 
-                // Add active class to clicked button and corresponding content
-                btn.classList.add('active');
-                const tabId = btn.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = btn.getAttribute('data-tab') + '-tab';
+        document.getElementById(tabId).classList.add('active');
+    });
+});
 
         // FAQ accordion functionality
         const faqItems = document.querySelectorAll('.faq-item');
