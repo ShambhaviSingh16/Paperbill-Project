@@ -309,7 +309,7 @@
             color: var(--success-color);
             margin-top: 4px;
         }
-        /* Bakery Management Section - Responsive */
+        /* Bakery Management Section - Updated Responsive */
 @media (max-width: 992px) {
     .management-content {
         flex-direction: column;
@@ -317,12 +317,13 @@
     }
     
     .management-image {
-        order: 1;
-        margin-bottom: 20px;
+        order: 3; /* Changed from 1 to 3 to move image to bottom */
+        margin-top: 30px;
+        margin-bottom: 0;
     }
     
     .management-text {
-        order: 2;
+        order: 1; /* Changed to appear first */
     }
     
     .management-text h2 {
@@ -335,7 +336,9 @@
     }
     
     .management-list {
+        order: 2; /* Added to ensure list appears after heading */
         padding-left: 20px;
+        margin-top: 20px;
     }
 }
 
