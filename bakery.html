@@ -263,7 +263,7 @@
             gap: 50px;
         }
 
-        .management-image {
+         .management-image {
             flex: 1;
             border-radius: 10px;
             overflow: hidden;
@@ -274,13 +274,16 @@
             width: 100%;
             height: auto;
             display: block;
-        }
+        } 
 
         .management-text {
             flex: 1;
         }
+        .management-section .section-header h2 {
+color: var(--primary-color);
+        }
 
-        .management-text h2 {
+.management-text h2 {
             font-size: 36px;
             margin-bottom: 20px;
             color: var(--primary-dark);
@@ -309,138 +312,230 @@
             color: var(--success-color);
             margin-top: 4px;
         }
-        /* Bakery Management Section - Updated Responsive */
-@media (max-width: 992px) {
-    .management-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .management-image {
-        order: 3; /* Changed from 1 to 3 to move image to bottom */
-        margin-top: 30px;
-        margin-bottom: 0;
-    }
-    
-    .management-text {
-        order: 1; /* Changed to appear first */
-    }
-    
-    .management-text h2 {
-        font-size: 30px;
-        text-align: center;
-    }
-    
-    .management-text p {
-        text-align: center;
-    }
-    
-    .management-list {
-        order: 2; /* Added to ensure list appears after heading */
-        padding-left: 20px;
-        margin-top: 20px;
-    }
-}
 
-@media (max-width: 576px) {
-    .management-section {
-        padding: 50px 0;
-    }
-    
-    .management-text h2 {
-        font-size: 26px;
-    }
-    
-    .management-list li {
-        font-size: 15px;
-    }
-}
+        /* Image Carousel Styles */
+        .image-carousel {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .carousel-nav button {
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            color: var(--primary-dark);
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .carousel-nav button:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--medium-gray);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary-color);
+        }
+
+        /* Bakery Management Section - Updated Responsive */
+        @media (max-width: 992px) {
+            .management-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .management-image {
+                order: 3; /* Changed from 1 to 3 to move image to bottom */
+                margin-top: 30px;
+                margin-bottom: 0;
+            }
+            
+            .management-text {
+                order: 1; /* Changed to appear first */
+                text-align: center;
+            }
+            
+            .management-text h2 {
+                font-size: 30px;
+                text-align: center;
+            }
+            
+            .management-text p {
+                text-align: center;
+            }
+            
+            .management-list {
+                order: 2;/*  Added to ensure list appears after heading */
+                padding-left: 20px;
+                margin-top: 20px;
+            }
+
+            .carousel-nav button {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .management-section {
+                padding: 50px 0;
+            }
+            
+            .management-text h2 {
+                font-size: 26px;
+            }
+            
+            .management-list li {
+                font-size: 15px;
+            }
+        }
 
         
         /* Testimonials Section */
-.testimonials-section {
-    padding: 80px 0;
-    background: var(--primary-color);
-    text-align: center;
-}
+        .testimonials-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            text-align: center;
+        }
 
-.testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.testimonial-card {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
 
-.testimonial-text {
-    position: relative;
-    margin-bottom: 25px;
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--gray-dark);
-}
+        .testimonial-text {
+            position: relative;
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
 
-.quote-icon {
-    font-size: 60px;
-    color: var(--primary-color);
-    opacity: 0.1;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: serif;
-    line-height: 1;
-}
+        .quote-icon {
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: serif;
+            line-height: 1;
+        }
 
-.testimonial-text p {
-    position: relative;
-    z-index: 1;
-}
+        .testimonial-text p {
+            position: relative;
+            z-index: 1;
+        }
 
-.testimonial-author {
-    margin-top: 20px;
-}
+        .testimonial-author {
+            margin-top: 20px;
+        }
 
-.author-name {
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--primary-dark);
-    margin-bottom: 5px;
-}
+        .author-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
 
-.author-business {
-    font-size: 14px;
-    color: var(--gray);
-    font-style: italic;
-}
+        .author-business {
+            font-size: 14px;
+            color: var(--gray);
+            font-style: italic;
+        }
 
-@media (max-width: 768px) {
-    .testimonials-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .testimonial-card {
-        padding: 25px;
-    }
-}
+        @media (max-width: 768px) {
+            .testimonials-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .testimonial-card {
+                padding: 25px;
+            }
+        }
 
 
          /* Enhanced Download Button Section */
@@ -1262,62 +1357,6 @@
     </div>
 </section>
 
-    <!-- <Features Section
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Specialized Features for Bakery Businesses</h2>
-                <p>PaperBill includes everything you need to manage your bakery shop efficiently</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bread-slice"></i>
-                    </div>
-                    <h3>Product Management</h3>
-                    <p>Easily manage your bakery items with categories, variants, and batch tracking.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-receipt"></i>
-                    </div>
-                    <h3>Smart Invoicing</h3>
-                    <p>Create beautiful invoices with your bakery's branding and item details.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>Sales Analytics</h3>
-                    <p>Track best-selling items, peak hours, and customer preferences.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-boxes"></i>
-                    </div>
-                    <h3>Inventory Control</h3>
-                    <p>Get low stock alerts and manage ingredients with expiry tracking.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Customer CRM</h3>
-                    <p>Build loyalty with customer profiles and purchase history.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile App</h3>
-                    <p>Manage your bakery on-the-go with our dedicated mobile application.</p>
-                </div>
-            </div>
-        </div>
-    </section>> -->
-
-    
-
     <!-- Why PaperBill is the Best Bakery Billing Software -->
     <section class="why-choose-section">
         <div class="container">
@@ -1509,72 +1548,79 @@
 </section>
     
 
-    <!-- Essential Features Section
-    <section class="features-section" style="background: var(--primary-color); color: white;">
-        <div class="container">
-            <div class="section-header">
-                <h2>Essential Features of PaperBill's Bakery Billing Software</h2>
-                <p>Core functionality designed specifically for bakeries and confectioneries</p>
+    <!-- Bakery Management Section -->
+<section class="management-section">
+    <div class="container">
+        <!-- Centered heading -->
+        <div class="section-header" style="margin-bottom: 40px;">
+            <h2>Complete Bakery Shop Management</h2>
+        </div>
+        
+        <div class="management-content">
+            <div class="management-text">
+                <p>PaperBill provides all the tools you need to run your bakery business smoothly, from billing to inventory to customer management.</p>
+                <ul class="management-list">
+                    <li><i class="fas fa-check"></i> Track daily sales and expenses</li>
+                    <li><i class="fas fa-check"></i> Manage recipes and ingredient costs</li>
+                    <li><i class="fas fa-check"></i> Generate GST-compliant invoices</li>
+                    <li><i class="fas fa-check"></i> Accept multiple payment methods</li>
+                    <li><i class="fas fa-check"></i> Print bills and labels</li>
+                    <li><i class="fas fa-check"></i> Cloud backup for data security</li>
+                </ul>
             </div>
             
-            <div class="features-grid">
-                <div class="feature-card" style="background: var(--light-gray)">
-                    <div class="feature-icon">
-                        <i class="fas fa-egg"></i>
+            <div class="image-carousel">
+                <div class="carousel-container" id="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="21.png" alt="Bakery Billing Software Dashboard">
+                        <div class="carousel-caption">Dashboard with sales & purchase overview</div>
                     </div>
-                    <h3>Product Variants</h3>
-                    <p>Manage different sizes, flavors and types of bakery products with ease.</p>
+                    <div class="carousel-slide">
+                        <img src="14.png" alt="Bakery Inventory Management">
+                        <div class="carousel-caption">Ingredient inventory tracking</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="18.png" alt="Bakery Invoice Example">
+                        <div class="carousel-caption">Bakery Sales </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="20.png" alt="Bakery Invoice Example">
+                        <div class="carousel-caption">Bakery Purchase</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="19.png" alt="Bakery Sales Reports">
+                        <div class="carousel-caption">Detailed report analytics</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="17.png" alt="Bakery Invoice Example">
+                        <div class="carousel-caption">Professional Bakery invoices</div>
+                    </div>
+                     <div class="carousel-slide">
+                        <img src="13.png" alt="Bakery Invoice Example">
+                        <div class="carousel-caption">Bakery Stock analytics</div>
+                    </div>
+                    <!--<div class="carousel-slide">
+                        <img src="17.png" alt="Bakery Invoice Example">
+                        <div class="carousel-caption">Professional Bakery invoices</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="17.png" alt="Bakery Invoice Example">
+                        <div class="carousel-caption">Professional Bakery invoices</div>
+                    </div> -->
                 </div>
                 
-                <div class="feature-card" style="background: var(--light-gray)">
-                    <div class="feature-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Weight-Based Items</h3>
-                    <p>Sell products by weight with automatic price calculations.</p>
+                <div class="carousel-nav">
+                    <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
                 
-                <div class="feature-card" style="background: var(--light-gray)">
-                    <div class="feature-icon">
-                        <i class="fas fa-comment-dollar"></i>
-                    </div>
-                    <h3>Daily Specials</h3>
-                    <p>Create and manage daily special offers and combo deals.</p>
-                </div>
-                
-                <div class="feature-card" style="background: var(--light-gray)">
-                    <div class="feature-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>Advance Orders</h3>
-                    <p>Take and manage advance orders for special occasions and events.</p>
+                <div class="carousel-dots" id="carousel-dots">
+                    <!-- Dots will be added by JavaScript -->
                 </div>
             </div>
         </div>
-    </section> -->
-
-    <!-- Bakery Management Section -->
-    <section class="management-section">
-        <div class="container">
-            <div class="management-content">
-                <div class="management-image">
-                    <img src="14.png" alt="Bakery Management Dashboard">
-                </div>
-                <div class="management-text">
-                    <h2>Complete Bakery Shop Management</h2>
-                    <p>PaperBill provides all the tools you need to run your bakery business smoothly, from billing to inventory to customer management.</p>
-                    <ul class="management-list">
-                        <li><i class="fas fa-check"></i> Track daily sales and expenses</li>
-                        <li><i class="fas fa-check"></i> Manage recipes and ingredient costs</li>
-                        <li><i class="fas fa-check"></i> Generate GST-compliant invoices</li>
-                        <li><i class="fas fa-check"></i> Accept multiple payment methods</li>
-                        <li><i class="fas fa-check"></i> Print bills and labels</li>
-                        <li><i class="fas fa-check"></i> Cloud backup for data security</li>
-                    </ul>
-                    </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Testimonials Section -->
 <section class="testimonials-section">
@@ -1732,54 +1778,6 @@
         </a>
     </div>
 
-    <!-- Footer 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>PaperBill</h4>
-                    <p>Billing software designed for small businesses to streamline operations and boost productivity.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="bakery.html">Bakery Shop</a></li>
-                        <li><a href="automobile.html">Auto Shop</a></li>
-                        <li><a href="#">Retail Shop</a></li>
-                        <li><a href="#">Restaurant</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">API Docs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 PaperBill. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>-->
-
     <script>
          // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1801,23 +1799,23 @@
         });
 
         // Feature Tab Functionality
-const featureTabBtns = document.querySelectorAll('.feature-tab-btn');
-const featureTabContents = document.querySelectorAll('.feature-tab-content');
+        const featureTabBtns = document.querySelectorAll('.feature-tab-btn');
+        const featureTabContents = document.querySelectorAll('.feature-tab-content');
 
-featureTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons and contents
-        featureTabBtns.forEach(btn => btn.classList.remove('active'));
-        featureTabContents.forEach(content => content.classList.remove('active'));
+        featureTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                featureTabBtns.forEach(btn => btn.classList.remove('active'));
+                featureTabContents.forEach(content => content.classList.remove('active'));
 
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        // Show corresponding content
-        const tabId = btn.getAttribute('data-tab') + '-tab';
-        document.getElementById(tabId).classList.add('active');
-    });
-});
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
 
         // FAQ accordion functionality
         const faqItems = document.querySelectorAll('.faq-item');
@@ -1926,6 +1924,72 @@ featureTabBtns.forEach(btn => {
                     }
                 }, timeoutDuration);
             }
+        });
+
+        // Image Carousel Functionality
+        const carouselContainer = document.getElementById('carousel-container');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.getElementById('carousel-dots');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentIndex = 0;
+
+        // Create dots
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-advance carousel (optional)
+        let carouselInterval = setInterval(nextSlide, 5000);
+
+        // Pause on hover
+        const carousel = document.querySelector('.image-carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(nextSlide, 5000);
         });
     </script>
 </body>
