@@ -1,1 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperBill - Cloud-Based Billing Software for Businesses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(90deg, #001F5A, #788bb3);
+            --primary-color: #001F5A;
+            --primary-light: #002b80;
+            --primary-dark: #001333;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --medium-gray: #adb5bd;
+            --success-color: #28a745;
+            --rating-color: #ffc107;
+            --cloud-primary: #4a90e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: var(--primary-gradient);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 10px;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: rgb(230, 211, 186);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--light-gray);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat;
+            background-size: cover;
+            background-position: right center;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 31, 90, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Cloud Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: rgb(230, 211, 186);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header p {
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-top: 5px solid var(--cloud-primary);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 50px;
+            color: var(--cloud-primary);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-header2 h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header2 p {
+            color: var(--primary-dark);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .features-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .feature-tab-btn {
+            padding: 12px 25px;
+            background: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-tab-btn.active {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+
+        .feature-tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .feature-tab-content.active {
+            display: block;
+        }
+
+        .feature-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--cloud-primary);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon-sm {
+            font-size: 24px;
+            color: var(--cloud-primary);
+            margin-top: 3px;
+        }
+
+        .feature-item-content h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .feature-item-content p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--primary-color);
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
+
+        .step-line-progress {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--white);
+            z-index: 2;
+            transition: width 0.5s ease;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .step h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .security-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .security-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .security-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .security-text {
+            flex: 1;
+        }
+
+        .security-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .security-text p {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .security-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .security-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--primary-dark);
+        }
+
+        .security-list li i {
+            color: var(--success-color);
+            margin-top: 4px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            text-align: center;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            position: relative;
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        .quote-icon {
+            font-size: 60px;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-business {
+            font-size: 14px;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-dark);
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 31, 90, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .faq-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Rating Section */
+        .rating-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            text-align: center;
+        }
+
+        .rating-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .rating-stars {
+            font-size: 30px;
+            color: var(--rating-color);
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .rating-stars i {
+            margin: 0 5px;
+            transition: transform 0.2s;
+        }
+
+        .rating-stars i:hover {
+            transform: scale(1.2);
+        }
+
+        .rating-text {
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .thank-you-message i {
+            font-size: 50px;
+            color: var(--success-color);
+            margin-bottom: 15px;
+        }
+
+        .thank-you-message h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .thank-you-message p {
+            color: var(--gray);
+        }
+
+        .rating-alert {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 5px;
+            color: #dc3545;
+            animation: fadeIn 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .rating-alert i {
+            font-size: 18px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--white);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1200x400/001F5A/788bb3?text=PaperBill+Background') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            color: var(--black);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Enhanced Download Button Section */
+        .download-section {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 10px 25px rgba(0, 31, 90, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 31, 90, 0.4);
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn i {
+            margin-right: 10px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .download-btn:hover i {
+            transform: translateY(-2px);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 31, 90, 0.4);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(0, 31, 90, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 31, 90, 0);
+            }
+        }
+
+        .download-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero::before {
+                width: 40%;
+                opacity: 0.5;
+            }
+
+            .efficiency-content {
+                flex-direction: column;
+            }
+
+            .efficiency-image {
+                width: 100%;
+            }
+
+            .security-content {
+                flex-direction: column;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .step-line {
+                display: none;
+            }
+
+            .step-line-progress {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            /* Navbar responsive styles */
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 20px;
+                transition: left 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+                text-align: center;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .invoice-preview {
+                margin: 40px auto 0;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+            }
+
+            .feature-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .download-btn {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="PaperBill Logo">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="automobile.html"><i class="fas fa-car"></i> Automobile</a></li>
+                <li><a href="bakery.html"><i class="fas fa-bread-slice"></i> Bakery</a></li>
+                <li><a href="cable.html"><i class="fas fa-tv"></i> Cable TV</a></li>
+                <li><a href="#"><i class="fas fa-download"></i> Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Cloud-Based Billing Software for Your Business</h1>
+                <p>Access your business data anytime, anywhere with PaperBill's secure cloud-based billing solution. No installations, no downloads - just login and go!</p>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn btn-primary">Watch Demo</a>
+                    <a href="#" class="btn btn-outline">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Cloud-Based Billing?</h2>
+                <p>Experience the freedom and flexibility of cloud-based business management</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Access Anywhere</h3>
+                    <p>Manage your business from any device with an internet connection - desktop, laptop, tablet or smartphone.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Real-Time Updates</h3>
+                    <p>All your data is automatically synced across all devices in real-time. No more version conflicts.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Automatic Backups</h3>
+                    <p>Your data is securely backed up automatically, protecting you from hardware failures and data loss.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Multi-User Access</h3>
+                    <p>Collaborate with your team by granting secure access to different users with appropriate permissions.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Automatic Updates</h3>
+                    <p>Always have the latest features and security updates without any manual installations.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade encryption and security protocols keep your business data safe and protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header2">
+                <h2>Powerful Cloud-Based Features</h2>
+                <p>All the tools you need to run your business efficiently in the cloud</p>
+            </div>
+            <div class="features-tabs">
+                <button class="feature-tab-btn active" data-tab="billing">Billing</button>
+                <button class="feature-tab-btn" data-tab="inventory">Inventory</button>
+                <button class="feature-tab-btn" data-tab="reports">Reports</button>
+                <button class="feature-tab-btn" data-tab="collaboration">Collaboration</button>
+            </div>
+            <div class="feature-tab-content active" id="billing-tab">
+                <div class="feature-columns">
+                    <div class="feature-item">
+                        <i class="fas fa-file-invoice feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Cloud Invoicing</h4>
+                            <p>Create and send professional invoices from anywhere, with automatic cloud storage.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Mobile Payments</h4>
+                            <p>Accept payments on-the-go with integrated mobile payment options.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-redo feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Recurring Billing</h4>
+                            <p>Set up automatic recurring invoices for regular customers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-sms feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Payment Reminders</h4>
+                            <p>Automatically send payment reminders via SMS or email.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-tab-content" id="inventory-tab">
+                <div class="feature-columns">
+                    <div class="feature-item">
+                        <i class="fas fa-boxes feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Real-Time Inventory</h4>
+                            <p>Track inventory levels across all locations in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bell feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Low Stock Alerts</h4>
+                            <p>Get automatic notifications when stock levels are low.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-barcode feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Barcode Scanning</h4>
+                            <p>Use your smartphone to scan barcodes and update inventory.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-exchange-alt feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Multi-Location Sync</h4>
+                            <p>Sync inventory across multiple store locations instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-tab-content" id="reports-tab">
+                <div class="feature-columns">
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Sales Analytics</h4>
+                            <p>Visualize your business performance with interactive charts.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-excel feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Export Reports</h4>
+                            <p>Export any report to Excel, PDF or CSV for further analysis.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Custom Date Ranges</h4>
+                            <p>Generate reports for any custom date range with one click.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-money-bill-wave feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Profit Analysis</h4>
+                            <p>Track your profit margins by product, category or time period.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-tab-content" id="collaboration-tab">
+                <div class="feature-columns">
+                    <div class="feature-item">
+                        <i class="fas fa-users feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Team Access</h4>
+                            <p>Grant secure access to team members with different permission levels.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-comments feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Internal Notes</h4>
+                            <p>Leave notes and comments for your team on transactions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-tasks feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Task Assignment</h4>
+                            <p>Assign tasks to team members and track completion.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-history feature-icon-sm"></i>
+                        <div class="feature-item-content">
+                            <h4>Activity Log</h4>
+                            <p>Track all changes and actions taken by team members.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How PaperBill Cloud Works</h2>
+                <p>Get started with cloud-based billing in just a few simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-line"></div>
+                <div class="step-line-progress"></div>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up</h3>
+                    <p>Create your PaperBill account in minutes. No credit card required for free trial.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Up</h3>
+                    <p>Add your business details, products, and customers to get started.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Start Using</h3>
+                    <p>Begin creating invoices, tracking payments, and managing your business.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Access Anywhere</h3>
+                    <p>Login from any device to access your business data anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <div class="container">
+            <div class="section-header2">
+                <h2>Enterprise-Grade Security</h2>
+                <p>Your business data is protected with bank-level security measures</p>
+            </div>
+            <div class="security-content">
+                <div class="security-image">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Security Illustration">
+                </div>
+                <div class="security-text">
+                    <h2>Your Data is Safe With Us</h2>
+                    <p>PaperBill uses industry-leading security protocols to ensure your business data is always protected.</p>
+                    <ul class="security-list">
+                        <li><i class="fas fa-check"></i> 256-bit SSL encryption for all data transmission</li>
+                        <li><i class="fas fa-check"></i> Regular automated backups to prevent data loss</li>
+                        <li><i class="fas fa-check"></i> Two-factor authentication for added security</li>
+                        <li><i class="fas fa-check"></i> Role-based access control for team members</li>
+                        <li><i class="fas fa-check"></i> Data centers with 99.9% uptime guarantee</li>
+                        <li><i class="fas fa-check"></i> Regular security audits and penetration testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Thousands of businesses trust PaperBill Cloud for their billing needs</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <span class="quote-icon">"</span>
+                        <p>Switching to PaperBill Cloud transformed how we do business. Now we can access our data from anywhere and collaborate as a team.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Rajesh Mehta</div>
+                        <div class="author-business">Mehta Electronics</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <span class="quote-icon">"</span>
+                        <p>The automatic backups give me peace of mind knowing my business data is always safe and accessible.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Priya Sharma</div>
+                        <div class="author-business">Sharma Fashion Boutique</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <span class="quote-icon">"</span>
+                        <p>Being able to check sales and inventory from my phone while away from the store has been a game-changer for my business.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Amit Patel</div>
+                        <div class="author-business">Patel Supermarket</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about PaperBill Cloud</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data safe in the cloud?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, your data is protected with enterprise-grade security measures including 256-bit SSL encryption, regular backups, and two-factor authentication. We use secure data centers with 99.9% uptime guarantees.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens if I lose internet connection?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>PaperBill Cloud has an offline mode that allows you to continue working without internet. All your changes will automatically sync once your connection is restored.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I access PaperBill Cloud on mobile?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! PaperBill Cloud is fully responsive and works on all devices including smartphones and tablets. We also offer dedicated mobile apps for iOS and Android.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often is my data backed up?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your data is backed up automatically every hour, with additional daily and weekly backups stored securely in multiple locations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I export my data if I want to switch?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can export all your data at any time in standard formats (Excel, CSV, PDF) for easy migration to other systems.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How many users can access my account?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can add unlimited users to your account with different permission levels to control what each user can access and modify.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rating Section -->
+    <section class="rating-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Useful Was This Information?</h2>
+                <p>Help us improve by rating your experience</p>
+            </div>
+            <div class="rating-container">
+                <div class="rating-stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p class="rating-text">Your feedback helps us create better content for businesses like yours.</p>
+                <button class="btn btn-primary" id="submit-rating">Submit Rating</button>
+
+                <!-- Thank you message (hidden by default) -->
+                <div class="thank-you-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You for Your Feedback!</h3>
+                    <p>We appreciate you taking the time to rate our content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Move Your Business to the Cloud?</h2>
+            <p>Join thousands of businesses using PaperBill Cloud to manage their operations from anywhere.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Start 14-Day Free Trial</a>
+                <a href="#demo" class="btn btn-outline">Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Button -->
+    <div class="download-section">
+        <a href="#" class="download-btn">
+            <i class="fas fa-cloud-download-alt"></i> Try Cloud Version
+        </a>
+    </div>
+
+    <!-- Footer -->
+<!--     <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>PaperBill</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="automobile.html">Automobile</a></li>
+                        <li><a href="bakery.html">Bakery</a></li>
+                        <li><a href="cable.html">Cable TV</a></li>
+                        <li><a href="cloud-based.html">Cloud-Based</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PaperBill. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+ -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Feature Tab Functionality
+        const featureTabBtns = document.querySelectorAll('.feature-tab-btn');
+        const featureTabContents = document.querySelectorAll('.feature-tab-content');
+
+        featureTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                featureTabBtns.forEach(btn => btn.classList.remove('active'));
+                featureTabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const icon = otherItem.querySelector('.faq-question i');
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+                const icon = question.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
+            });
+        });
+
+        // Updated rating functionality with single error message
+        const stars = document.querySelectorAll('.rating-stars i');
+        const submitBtn = document.getElementById('submit-rating');
+        const thankYouMessage = document.querySelector('.thank-you-message');
+        let selectedRating = 0;
+        let errorMessage = null;
+        let attemptCount = 0;
+        const baseTimeout = 2000; // 2 seconds base timeout
+        const maxTimeout = 5000; // 5 seconds maximum timeout
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                selectedRating = rating;
+                attemptCount = 0; // Reset attempt count when user selects a rating
+
+                // Update stars display
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+
+                // Remove any existing error message
+                if (errorMessage) {
+                    errorMessage.remove();
+                    errorMessage = null;
+                }
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            if (selectedRating > 0) {
+                // Hide rating elements
+                document.querySelector('.rating-stars').style.display = 'none';
+                document.querySelector('.rating-text').style.display = 'none';
+                submitBtn.style.display = 'none';
+
+                // Show thank you message
+                thankYouMessage.style.display = 'block';
+
+                // Reset attempt count on successful submission
+                attemptCount = 0;
+
+                // In a real implementation, you would send the rating to your server here
+                console.log(`User rated: ${selectedRating} stars`);
+            } else {
+                // Remove previous error message if exists
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+
+                // Calculate timeout duration (increases with each attempt)
+                const timeoutDuration = Math.min(baseTimeout + (attemptCount * 1000), maxTimeout);
+                attemptCount++;
+
+                // Create new error message
+                errorMessage = document.createElement('div');
+                errorMessage.className = 'rating-alert';
+                errorMessage.innerHTML = `
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Please select a rating before submitting</span>
+            `;
+                document.querySelector('.rating-container').appendChild(errorMessage);
+
+                // Remove after calculated timeout duration
+                setTimeout(() => {
+                    if (errorMessage) {
+                        errorMessage.remove();
+                        errorMessage = null;
+                    }
+                }, timeoutDuration);
+            }
+        });
+
+        // Animate step line progress
+        const stepLineProgress = document.querySelector('.step-line-progress');
+        const steps = document.querySelectorAll('.step');
+        
+        function updateStepLine() {
+            const scrollPosition = window.scrollY;
+            const sectionTop = document.querySelector('.how-it-works').offsetTop;
+            const sectionHeight = document.querySelector('.how-it-works').offsetHeight;
+            const sectionBottom = sectionTop + sectionHeight;
+            
+            if (scrollPosition > sectionTop && scrollPosition < sectionBottom) {
+                const progress = ((scrollPosition - sectionTop) / sectionHeight) * 100;
+                stepLineProgress.style.width = `${progress}%`;
+            } else if (scrollPosition >= sectionBottom) {
+                stepLineProgress.style.width = '100%';
+            } else {
+                stepLineProgress.style.width = '0%';
+            }
+        }
+        
+        window.addEventListener('scroll', updateStepLine);
+        window.addEventListener('load', updateStepLine);
+    </script>
+</body>
+</html>
